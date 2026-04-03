@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding Fathers — Republic of Labradoria</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#002147">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .founder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
+        .founder-card { background: white; border: 1px solid #e0e0d8; border-top: 6px solid #c8a84b; padding: 36px 32px; }
+        .founder-card .title-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #c8a84b; margin-bottom: 10px; }
+        .founder-card h2 { color: #002147; font-size: 1.6rem; margin-bottom: 4px; }
+        .founder-card .role { font-size: 0.88rem; color: #888; margin-bottom: 20px; }
+        .founder-card p { font-size: 0.9rem; line-height: 1.8; color: #444; margin-bottom: 14px; }
+        .founder-card .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+        .founder-card .links a { display: inline-block; padding: 8px 16px; background: #002147; color: #c8a84b; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border: 1px solid #002147; transition: background 0.2s, color 0.2s; }
+        .founder-card .links a:hover { background: #c8a84b; color: #002147; border-color: #c8a84b; }
+        .quote-block { background: #002147; color: white; padding: 40px; margin: 48px 0; border-left: 6px solid #c8a84b; }
+        .quote-block blockquote { font-style: italic; font-size: 1.1rem; line-height: 1.85; color: #dde8f0; }
+        .quote-block cite { display: block; margin-top: 14px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: #c8a84b; font-style: normal; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <div class="header-brand">
+            <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+                <img class="coat-of-arms" src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+                <span>Republic of <em>Labradoria</em></span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="president.html">President</a></li>
+        <li><a href="cabinet.html">Cabinet</a></li>
+        <li><a href="constitution.html">Constitution</a></li>
+        <li><a href="territories.html">Territories</a></li>
+        <li><a href="press.html">Press Office</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" style="padding:50px 24px;">
+    <div class="section-label" style="margin-bottom:10px;">History of the Republic</div>
+    <h1 style="font-size:2rem;">Founding Fathers of Labradoria</h1>
+    <p>The individuals who conceived, established, and constituted the Republic of Labradoria</p>
+</section>
+
+<section class="section reveal">
+    <div class="section-inner">
+        <div class="section-label">Founders</div>
+        <h2>The Founding Fathers</h2>
+        <hr class="gold-rule">
+        <p class="section-intro">The Republic of Labradoria was conceived and established in 2024 by two founding fathers whose vision, initiative, and shared values gave rise to this sovereign micronation.</p>
+
+        <div class="founder-grid">
+
+            <div class="founder-card reveal">
+                <div class="title-tag">Founding Father &amp; Head of State</div>
+                <h2>Freddie Sparrow</h2>
+                <div class="role">1st President of the Republic of Labradoria</div>
+                <p>Freddie Sparrow is the founding President of the Republic of Labradoria, serving as Head of State and Head of Government since the Republic's formal constitution in 2026. As the driving force behind the establishment of Labradoria, President Sparrow has overseen the drafting of the Constitution, the publication of the Territorial Register, and the formal recognition of sovereign states on behalf of the Republic.</p>
+                <p>President Sparrow's vision for Labradoria is of a peaceful, Catholic, and law-governed micronation open to all who share its values — a republic built on faith, community, and the common good.</p>
+                <div class="links">
+                    <a href="https://www.acadamski17.me/" target="_blank" rel="noopener">&#127760; Personal Website</a>
+                </div>
+            </div>
+
+            <div class="founder-card reveal">
+                <div class="title-tag">Founding Father &amp; Minister of Technology</div>
+                <h2>Adam Calcroft</h2>
+                <div class="role">Co-Founder &amp; Minister of Science, Technology &amp; Innovation<br>
+                CEO, T&amp;A 3D Printing &nbsp;·&nbsp; Creator, TechTesting &nbsp;·&nbsp; Founder, CookieCloud / CookieHost / CookieNet</div>
+
+                <p>Adam Calcroft is a co-founder of the Republic of Labradoria and serves as Minister of Foreign Affairs and Territorial Affairs. A self-described networking addict and infrastructure builder, Adam began building serious technical systems at age 10 — long before most people his age had considered what a subnet is.</p>
+
+                <p>Adam is the creator of <strong>CookieCloud</strong>, a fully self-built, self-hosted distributed cloud platform running on the <strong>CookieNet</strong> — his bedroom datacentre. CookieCloud provides cloud storage, encrypted secret sharing, password management, photo management, cloud meetings, collaborative whiteboards, and more — all built, operated, and maintained by Adam personally. It runs on a custom Ubuntu-based OS he calls <em>Cookibuntu</em>, using Docker, Kubernetes, and NGINX across a distributed server cluster, with 100% Ubiquiti networking and a leased-line uplink via Zen Internet with a public IPv4 range and a /46 IPv6 block. CookieNet aims to be fully carbon neutral by 2030; all cooling is closed-loop with zero water usage.</p>
+
+                <p>From CookieCloud grew <strong>CookieHost</strong>, a server hosting platform offering game hosting, web hosting, code hosting, database hosting, and bot hosting — all on custom infrastructure that never over-allocates or misuses client data. Adam is also developing <strong>CookieGPT</strong>, a partially self-trained LLM running entirely on the CookieNet, and is the co-runner of AI Club at school where he teaches peers to build their own language models.</p>
+
+                <p>Beyond CookieNet, Adam founded <strong>Netform</strong>, offering professional home network design using Ubiquiti hardware, and co-founded <strong>T&amp;A 3D Printing</strong> during COVID at age 10 — most notably producing parts that helped Silverstone College win <em>Best Pit Display</em> at the F1 in Schools competition. He also identifies as neurodivergent, viewing it as a superpower: <em>"Pattern recognition becomes network design. Hyperfocus becomes infrastructure. Overthinking becomes redundancy planning."</em></p>
+
+                <p style="font-size:0.82rem;color:#999;font-style:italic;">Labradoria is proud to count Adam and the CookieNet infrastructure among its allied digital assets. Citizens of the Republic can access discounted hosting through <a href="https://cookiehost.uk" target="_blank" rel="noopener" style="color:#002147;font-weight:700;">CookieHost.uk</a>.</p>
+
+                <div class="links">
+                    <a href="https://uk.linkedin.com/in/adam-calcroft" target="_blank" rel="noopener">&#128101; LinkedIn</a>
+                    <a href="https://cookiehost.uk" target="_blank" rel="noopener">&#127850; CookieHost.uk</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="quote-block reveal">
+            <blockquote>"The Republic of Labradoria was founded not on the ambition of power, but on the hope of community — a nation built by people who believe that peace, faith, and the common good are worth striving for, wherever in the world you may stand."</blockquote>
+            <cite>— Freddie Sparrow &amp; Adam Calcroft, Founding Fathers, Republic of Labradoria, 2024</cite>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="seal-footer">
+            <img src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Republic of Labradoria</h4>
+                <p>A sovereign, peaceful, Catholic micronation established in 2024 and formally constituted in 2026.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Government</h4>
+                <ul>
+                    <li><a href="president.html">President</a></li>
+                    <li><a href="cabinet.html">Cabinet</a></li>
+                    <li><a href="constitution.html">Constitution</a></li>
+                    <li><a href="territories.html">Territories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>History</h4>
+                <ul>
+                    <li><a href="founders.html">Founding Fathers</a></li>
+                    <li><a href="announcement.html">Presidential Declarations</a></li>
+                    <li><a href="press.html">Press Office</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Press &amp; Contact</h4>
+                <ul>
+                    <li><a href="press.html">Press Office</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.html">labradoria.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Republic of Labradoria. All rights reserved. &nbsp;|&nbsp; <a href="constitution.html">Constitution</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" title="Back to top">&#8593;</button>
+<script src="script.js"></script>
+</body>
+</html>

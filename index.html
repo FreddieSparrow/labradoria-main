@@ -14,11 +14,16 @@
 </head>
 <body>
 
+<!-- Small fixed top-left notice tab -->
+<a id="notice-tab" href="announcement.html" target="_blank" rel="noopener"
+   onclick="localStorage.setItem('labradoria-alert-dismissed','1'); document.getElementById('alert-banner').style.display='none';">
+    &#9888; Govt. Notice
+</a>
+
 <!-- ===== ALERT BANNER ===== -->
 <div class="alert-banner" id="alert-banner">
     <div class="alert-inner">
         <span class="alert-icon">&#9888;</span>
-        <button id="alert-close" style="background:none;border:1px solid rgba(255,255,255,0.4);color:white;padding:4px 10px;cursor:pointer;font-size:0.8rem;flex-shrink:0;margin-top:2px;align-self:flex-start;">&#x2715; Dismiss</button>
         <div>
             <strong>Official Notice to All Foreign Governments, Diplomatic Missions &amp; International Bodies</strong>
             <p>
@@ -240,6 +245,7 @@
                     <li><a href="cabinet.html">Cabinet</a></li>
                     <li><a href="constitution.html">Constitution</a></li>
                     <li><a href="territories.html">Territories</a></li>
+                    <li><a href="founders.html">Founding Fathers</a></li>
                 </ul>
             </div>
             <div class="footer-col">
