@@ -12,18 +12,182 @@
     <meta name="theme-color" content="#002147">
     <link rel="stylesheet" href="style.css">
     <style>
-        .founder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; }
-        .founder-card { background: white; border: 1px solid #e0e0d8; border-top: 6px solid #c8a84b; padding: 36px 32px; }
-        .founder-card .title-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #c8a84b; margin-bottom: 10px; }
-        .founder-card h2 { color: #002147; font-size: 1.6rem; margin-bottom: 4px; }
-        .founder-card .role { font-size: 0.88rem; color: #888; margin-bottom: 20px; }
-        .founder-card p { font-size: 0.9rem; line-height: 1.8; color: #444; margin-bottom: 14px; }
-        .founder-card .links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
-        .founder-card .links a { display: inline-block; padding: 8px 16px; background: #002147; color: #c8a84b; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border: 1px solid #002147; transition: background 0.2s, color 0.2s; }
-        .founder-card .links a:hover { background: #c8a84b; color: #002147; border-color: #c8a84b; }
-        .quote-block { background: #002147; color: white; padding: 40px; margin: 48px 0; border-left: 6px solid #c8a84b; }
-        .quote-block blockquote { font-style: italic; font-size: 1.1rem; line-height: 1.85; color: #dde8f0; }
-        .quote-block cite { display: block; margin-top: 14px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: #c8a84b; font-style: normal; }
+        .founder-hero { background: linear-gradient(135deg, #002147 0%, #003366 100%); color: white; padding: 60px 24px; text-align: center; }
+        .founder-hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .founder-hero p { font-size: 1rem; opacity: 0.9; }
+
+        .founders-container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+
+        .founder-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; margin-bottom: 60px; }
+        
+        .founder-card {
+            background: white;
+            border: 1px solid #e0e0d8;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,33,71,0.12);
+        }
+
+        .founder-card-header {
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
+            color: white;
+            padding: 40px 32px;
+            text-align: center;
+            border-bottom: 4px solid #DAA520;
+        }
+
+        .founder-title-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #DAA520;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .founder-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .founder-role {
+            font-size: 0.85rem;
+            color: #b0c8e0;
+            line-height: 1.5;
+        }
+
+        .founder-card-body {
+            padding: 32px;
+        }
+
+        .founder-bio {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .founder-bio p {
+            margin-bottom: 16px;
+        }
+
+        .founder-bio strong {
+            color: #002147;
+        }
+
+        .founder-highlights {
+            background: #f5f5f0;
+            border-left: 4px solid #DAA520;
+            padding: 16px;
+            margin: 20px 0;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .founder-highlights ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .founder-highlights li {
+            padding: 6px 0;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .founder-highlights li:before {
+            content: "›";
+            color: #DAA520;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .founder-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e0e0d8;
+            flex-wrap: wrap;
+        }
+
+        .founder-link-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #002147;
+            color: #DAA520;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s;
+            border: 1px solid #002147;
+        }
+
+        .founder-link-btn:hover {
+            background: #DAA520;
+            color: #002147;
+            border-color: #DAA520;
+        }
+
+        .founder-desc { font-size: 0.8rem; color: #999; }
+
+        .quote-section {
+            background: #002147;
+            color: white;
+            padding: 60px 40px;
+            border-left: 6px solid #DAA520;
+            margin: 60px 0;
+            border-radius: 4px;
+        }
+
+        .quote-section blockquote {
+            font-style: italic;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+            color: #dde8f0;
+        }
+
+        .quote-section cite {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #DAA520;
+            font-style: normal;
+        }
+
+        .mission-section {
+            background: #f5f5f0;
+            padding: 40px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+
+        .mission-section h3 {
+            color: #002147;
+            margin-bottom: 16px;
+        }
+
+        .mission-section p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -45,59 +209,189 @@
         <li><a href="president.html">President</a></li>
         <li><a href="cabinet.html">Cabinet</a></li>
         <li><a href="constitution.html">Constitution</a></li>
+        <li><a href="infrastructure.html">Infrastructure</a></li>
+        <li><a href="divisions.html">Divisions</a></li>
+        <li><a href="laws.html">Laws &amp; Values</a></li>
         <li><a href="territories.html">Territories</a></li>
-        <li><a href="press.html">Press Office</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="founders.html" class="active">Founders</a></li>
+        <li><a href="press.html">Press</a></li>
     </ul>
 </nav>
 
-<section class="hero" style="padding:50px 24px;">
-    <div class="section-label" style="margin-bottom:10px;">History of the Republic</div>
-    <h1 style="font-size:2rem;">Founding Fathers of Labradoria</h1>
-    <p>The individuals who conceived, established, and constituted the Republic of Labradoria</p>
-</section>
+<div class="founder-hero">
+    <h1>Founding Fathers of Labradoria</h1>
+    <p>The visionaries who established a sovereign, peaceful micronation</p>
+</div>
 
-<section class="section reveal">
-    <div class="section-inner">
-        <div class="section-label">Founders</div>
-        <h2>The Founding Fathers</h2>
-        <hr class="gold-rule">
-        <p class="section-intro">The Republic of Labradoria was conceived and established in 2024 by two founding fathers whose vision, initiative, and shared values gave rise to this sovereign micronation.</p>
+<div class="founders-container">
 
-        <div class="founder-grid">
+    <div class="mission-section">
+        <h3>Our Founding Vision</h3>
+        <p><strong style="color:#c8a84b;">Note: All current government officials and contributors serve in an unpaid, voluntary capacity. Labradoria's leadership is not funded—it exists to build something genuine and functional.</strong></p>
+        <p>The Republic of Labradoria was conceived in 2024 by two founders with aligned vision: to establish a sovereign micronation built on law, faith, peace, and technological innovation. This nation exists not as a fantasy, but as a real governance structure with real infrastructure, real systems, and real participation from its citizens and contributors.</p>
+    </div>
 
-            <div class="founder-card reveal">
-                <div class="title-tag">Founding Father &amp; Head of State</div>
-                <h2>Freddie Sparrow</h2>
-                <div class="role">1st President of the Republic of Labradoria</div>
-                <p>Freddie Sparrow is the founding President of the Republic of Labradoria, serving as Head of State and Head of Government since the Republic's formal constitution in 2026. As the driving force behind the establishment of Labradoria, President Sparrow has overseen the drafting of the Constitution, the publication of the Territorial Register, and the formal recognition of sovereign states on behalf of the Republic.</p>
-                <p>President Sparrow's vision for Labradoria is of a peaceful, Catholic, and law-governed micronation open to all who share its values — a republic built on faith, community, and the common good.</p>
-                <div class="links">
-                    <a href="https://www.linkedin.com/in/freddie-sparrow/" target="_blank" rel="noopener">&#128101; LinkedIn</a>
+    <div class="founder-grid">
+
+        <!-- FREDDIE SPARROW -->
+        <div class="founder-card reveal">
+            <div class="founder-card-header">
+                <span class="founder-title-tag">Founding Father</span>
+                <div class="founder-name">Freddie Sparrow</div>
+                <div class="founder-role">1st President of the Republic<br><span style="font-size:0.75rem;color:#DAA520;">Head of State & Head of Government</span></div>
+            </div>
+            <div class="founder-card-body">
+                <div class="founder-bio">
+                    <p>Freddie Sparrow is the founding President and Head of State of the Republic of Labradoria. As the chief architect of the nation's Constitution, territorial framework, and diplomatic policy, President Sparrow envisioned a sovereign micronation that would be genuinely peaceful, legally rigorous, and open to citizens from around the world.</p>
+                    
+                    <p style="font-size:0.85rem;color:#999;">Freddie's leadership philosophy centers on the principle that a micronation must be built on real institutions, real law, and real governance—not fantasy. Every element of Labradoria from the Constitution's safeguards to the citizenship process reflects this commitment to building something that actually functions.</p>
+                </div>
+
+                <div class="founder-highlights">
+                    <strong style="color:#002147;display:block;margin-bottom:8px;">Key Contributions:</strong>
+                    <ul>
+                        <li>Drafted the Constitution of the Republic (21 Articles, 10,000+ words)</li>
+                        <li>Established territorial claims based on international law principles</li>
+                        <li>Created the framework for peaceful governance & citizen participation</li>
+                        <li>Designed safeguards against authoritarian governance collapse</li>
+                        <li>Formalised diplomatic recognition of allied micronations</li>
+                    </ul>
+                </div>
+
+                <div class="founder-links">
+                    <a href="president.html" class="founder-link-btn">Office</a>
+                    <a href="https://linkedin.com/in/freddie-sparrow" target="_blank" rel="noopener" class="founder-link-btn">LinkedIn</a>
                 </div>
             </div>
+        </div>
 
-            <div class="founder-card reveal">
-                <div class="title-tag">Founding Father &amp; Minister of Technology</div>
-                <h2>Adam Calcroft</h2>
-                <div class="role">Co-Founder &amp; Minister of Science, Technology &amp; Innovation<br>
-                CEO, T&amp;A 3D Printing &nbsp;·&nbsp; Creator, TechTesting &nbsp;·&nbsp; Founder, CookieCloud / CookieHost / CookieNet</div>
+        <!-- ADAM CALCROFT -->
+        <div class="founder-card reveal">
+            <div class="founder-card-header">
+                <span class="founder-title-tag">Founding Father &amp; CTO</span>
+                <div class="founder-name">Adam Calcroft</div>
+                <div class="founder-role">Minister of Science, Technology & Innovation<br><span style="font-size:0.75rem;color:#DAA520;">Infrastructure Architect & Innovator</span></div>
+            </div>
+            <div class="founder-card-body">
+                <div class="founder-bio">
+                    <p>Adam Calcroft is a co-founder of the Republic and the Minister of Science, Technology &amp; Innovation. A self-taught infrastructure builder since age 10, Adam brings real, functional digital systems to Labradoria—not theoretical concepts. His CookieNet infrastructure provides Labradoian citizens with actual hosting, cloud services, and digital tools.</p>
+                    
+                    <p style="font-size:0.85rem;color:#999;">Adam's philosophy: <em>"Legitimacy follows function."</em> Rather than declaring capabilities, Adam builds them. The CookieNet is a fully operational distributed cloud platform; CookieHost provides real server hosting; CookieCloud offers genuine encryption and collaboration tools.</p>
+                </div>
 
-                <p>Adam Calcroft is a co-founder of the Republic of Labradoria and serves as Minister of Science, Technology &amp; Innovation. A self-described networking addict and infrastructure builder, Adam began building serious technical systems at age 10 — long before most people his age had considered what a subnet is.</p>
+                <div class="founder-highlights">
+                    <strong style="color:#002147;display:block;margin-bottom:8px;">Key Systems Built:</strong>
+                    <ul>
+                        <li>CookieNet: Distributed infrastructure with public IPv4 & /46 IPv6</li>
+                        <li>CookieCloud: Encrypted cloud storage, meetings, collaboration</li>
+                        <li>CookieHost: Web/game/bot hosting for citizens at discounted rates</li>
+                        <li>Digital citizenship infrastructure & governance tooling</li>
+                        <li>CookieGPT: Self-trained language model in active development</li>
+                    </ul>
+                </div>
 
-                <p>Adam is the creator of <strong>CookieCloud</strong>, a fully self-built, self-hosted distributed cloud platform running on the <strong>CookieNet</strong> — his bedroom datacentre. CookieCloud provides cloud storage, encrypted secret sharing, password management, photo management, cloud meetings, collaborative whiteboards, and more — all built, operated, and maintained by Adam personally. It runs on a custom Ubuntu-based OS he calls <em>Cookibuntu</em>, using Docker, Kubernetes, and NGINX across a distributed server cluster, with 100% Ubiquiti networking and a leased-line uplink via Zen Internet with a public IPv4 range and a /46 IPv6 block. CookieNet aims to be fully carbon neutral by 2030; all cooling is closed-loop with zero water usage.</p>
-
-                <p>From CookieCloud grew <strong>CookieHost</strong>, a server hosting platform offering game hosting, web hosting, code hosting, database hosting, and bot hosting — all on custom infrastructure that never over-allocates or misuses client data. Adam is also developing <strong>CookieGPT</strong>, a partially self-trained LLM running entirely on the CookieNet, and is the co-runner of AI Club at school where he teaches peers to build their own language models.</p>
-
-                <p>Beyond CookieNet, Adam founded <strong>Netform</strong>, offering professional home network design using Ubiquiti hardware, and co-founded <strong>T&amp;A 3D Printing</strong> during COVID at age 10 — most notably producing parts that helped Silverstone College win <em>Best Pit Display</em> at the F1 in Schools competition. He also identifies as neurodivergent, viewing it as a superpower: <em>"Pattern recognition becomes network design. Hyperfocus becomes infrastructure. Overthinking becomes redundancy planning."</em></p>
-
-                <p style="font-size:0.82rem;color:#999;font-style:italic;">Labradoria is proud to count Adam and the CookieNet infrastructure among its allied digital assets. Citizens of the Republic can access discounted hosting through <a href="https://cookiehost.uk" target="_blank" rel="noopener" style="color:#002147;font-weight:700;">CookieHost.uk</a>.</p>
-
-                <div class="links">
-                    <a href="https://uk.linkedin.com/in/adam-calcroft" target="_blank" rel="noopener">&#128101; LinkedIn</a>
-                    <a href="https://cookiehost.uk" target="_blank" rel="noopener">&#127850; CookieHost.uk</a>
+                <div class="founder-links">
+                    <a href="president.html?section=cabinet" class="founder-link-btn">Cabinet Info</a>
+                    <a href="https://cookiehost.uk" target="_blank" rel="noopener" class="founder-link-btn">CookieHost</a>
+                    <a href="https://linkedin.com/in/adam-calcroft" target="_blank" rel="noopener" class="founder-link-btn">LinkedIn</a>
                 </div>
             </div>
+        </div>
+
+        <!-- HAYDN FELL -->
+        <div class="founder-card reveal">
+            <div class="founder-card-header">
+                <span class="founder-title-tag">Early Contributor</span>
+                <div class="founder-name">Haydn Fell</div>
+                <div class="founder-role">Deputy Minister of Internal Affairs<br><span style="font-size:0.75rem;color:#DAA520;">Politics, Governance & Policy</span></div>
+            </div>
+            <div class="founder-card-body">
+                <div class="founder-bio">
+                    <p>Haydn Fell is an early contributor to the Republic, bringing expertise in political science, governance structures, and policy analysis. As a dedicated student of politics and current leadership roles at his institution, Haydn helps shape Labradoria's internal governance frameworks and ensures our political structures reflect democratic principles and academic rigor.</p>
+                    
+                    <p style="font-size:0.85rem;color:#999;">Haydn's focus: Building governance that works. With a background in debating, mentoring, and political leadership roles, Haydn ensures Labradoria's internal structures are both principled and practical. He bridges the gap between theoretical political science and functional government.</p>
+                </div>
+
+                <div class="founder-highlights">
+                    <strong style="color:#002147;display:block;margin-bottom:8px;">Contributions:</strong>
+                    <ul>
+                        <li>Political philosophy and governance structure analysis</li>
+                        <li>Constitutional refinement and policy development</li>
+                        <li>Debate strategy and diplomatic communication</li>
+                        <li>Academic mentorship for governance systems</li>
+                        <li>Leadership development and organizational roles</li>
+                    </ul>
+                </div>
+
+                <div class="founder-links">
+                    <a href="cabinet.html" class="founder-link-btn">Cabinet</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="quote-section">
+        <blockquote>"Labradoria doesn't claim to be a nation. It is one. Not because we say so, but because we've built the infrastructure, drafted the law, and created the systems to make it real."</blockquote>
+        <cite>Founding Principle of Labradoria</cite>
+    </div>
+
+    <div class="mission-section">
+        <h3>How Labradoria is Different</h3>
+        <p><strong>Real Infrastructure:</strong> Unlike many micronations, Labradoria is backed by functional digital systems, secure hosting, and operational governance tools. Citizens don't just receive a title—they can participate in real services and mechanisms.</p>
+        <p style="margin-top:10px;"><strong>Intentional Structure:</strong> The Constitution isn't decorative. Its 75% removal threshold, 48-hour replacement rules, and supermajority voting are designed to prevent authoritarian collapse and ensure legitimacy</p>
+        <p style="margin-top:10px;"><strong>Citizen Roles, Not Titles:</strong> Rather than vague "citizenship," Labradoria offers structured roles in divisions—Tech, Media, Intelligence/Research—where contribution is meaningful and recognized.</p>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="seal-footer">
+            <img src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Republic of Labradoria</h4>
+                <p>A sovereign, peaceful micronation established by real people with real infrastructure and real governance.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Government</h4>
+                <ul>
+                    <li><a href="president.html">President</a></li>
+                    <li><a href="cabinet.html">Cabinet</a></li>
+                    <li><a href="constitution.html">Constitution</a></li>
+                    <li><a href="founders.html">Founders</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Participate</h4>
+                <ul>
+                    <li><a href="divisions.html">Join a Division</a></li>
+                    <li><a href="contact.html">Apply for Citizenship</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Infrastructure</h4>
+                <ul>
+                    <li><a href="https://cookiehost.uk">CookieHost</a></li>
+                    <li><a href="contact.html">Citizen Email</a></li>
+                    <li><a href="press.html">Press Office</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Republic of Labradoria. Established by Freddie Sparrow and Adam Calcroft.</p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" title="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
 
         </div>
 
@@ -112,7 +406,7 @@
         <div class="footer-cols">
             <div class="footer-col">
                 <h4>Republic of Labradoria</h4>
-                <p>A sovereign, peaceful, Catholic micronation established in 2024 and formally constituted in 2026.</p>
+                <p>A sovereign, peaceful, Christian micronation established in 2024 and formally constituted in 2026.</p>
             </div>
             <div class="footer-col">
                 <h4>Government</h4>

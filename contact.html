@@ -39,6 +39,8 @@
         <li><a href="president.html">President</a></li>
         <li><a href="cabinet.html">Cabinet</a></li>
         <li><a href="constitution.html">Constitution</a></li>
+        <li><a href="infrastructure.html">Infrastructure</a></li>
+        <li><a href="divisions.html">Divisions</a></li>
         <li><a href="territories.html">Territories</a></li>
         <li><a href="press.html">Press Office</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
@@ -79,8 +81,38 @@
             </div>
         </div>
         <div style="background:#f4f6f8;border:1px solid #ddd;padding:28px 32px;margin-top:8px;">
-            <p style="color:#555;font-size:0.9rem;line-height:1.8;margin-bottom:10px;">All formal enquiries should be directed to the Republic of Labradoria at the official government email address below. We aim to respond to all correspondence within a reasonable period.</p>
-            <p style="font-size:1rem;font-weight:700;color:#002147;">&#9993;&nbsp; <a href="mailto:office@labradoria.org" style="color:#002147;">office@labradoria.org</a></p>
+            <p style="color:#555;font-size:0.9rem;line-height:1.8;margin-bottom:10px;"><strong>Send us a message:</strong> Use the form below to contact any department. Your message will be sent to office@labradoria.org and routed to the appropriate ministry.</p>
+
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="margin-top:20px;">
+                <div style="margin-bottom:16px;">
+                    <label for="contact-name" style="display:block;font-weight:bold;margin-bottom:6px;color:#002147;">Your Name *</label>
+                    <input type="text" id="contact-name" name="name" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:3px;">
+                </div>
+                <div style="margin-bottom:16px;">
+                    <label for="contact-email" style="display:block;font-weight:bold;margin-bottom:6px;color:#002147;">Your Email *</label>
+                    <input type="email" id="contact-email" name="email" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:3px;">
+                </div>
+                <div style="margin-bottom:16px;">
+                    <label for="contact-subject" style="display:block;font-weight:bold;margin-bottom:6px;color:#002147;">Subject *</label>
+                    <select id="contact-subject" name="subject" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:3px;">
+                        <option value="">-- Select a Department --</option>
+                        <option value="Diplomatic Inquiry">Ministry of Foreign Affairs - Diplomatic Inquiry</option>
+                        <option value="Citizenship Application">Ministry of Internal Affairs - Citizenship Application</option>
+                        <option value="Land Cession">Ministry of Foreign Affairs - Land Cession</option>
+                        <option value="Press Inquiry">Press Office - Media Inquiry</option>
+                        <option value="Technology Division">Technology Division - Join/Collaborate</option>
+                        <option value="Media Division">Media Division - Join/Collaborate</option>
+                        <option value="Research Division">Intelligence/Research Division - Join/Collaborate</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <label for="contact-message" style="display:block;font-weight:bold;margin-bottom:6px;color:#002147;">Message *</label>
+                    <textarea id="contact-message" name="message" required style="width:100%;padding:10px;border:1px solid #ccc;border-radius:3px;min-height:120px;"></textarea>
+                </div>
+                <button type="submit" style="background:#002147;color:#DAA520;padding:12px 28px;border:none;border-radius:3px;font-weight:bold;text-transform:uppercase;cursor:pointer;font-size:0.9rem;">Send Message</button>
+                <p style="font-size:0.8rem;color:#999;margin-top:12px;">Or email directly: <strong>office@labradoria.org</strong></p>
+            </form>
         </div>
     </div>
 </section>
@@ -93,7 +125,7 @@
         <div class="footer-cols">
             <div class="footer-col">
                 <h4>Republic of Labradoria</h4>
-                <p>A sovereign, peaceful, Catholic micronation established in 2024 and formally constituted in 2026.</p>
+                <p>A sovereign, peaceful, Christian micronation established in 2024 and formally constituted in 2026.</p>
             </div>
             <div class="footer-col">
                 <h4>Government</h4>

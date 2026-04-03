@@ -48,3 +48,60 @@ document.querySelectorAll('.news-card, .territory-item, .pillar, .minister-card,
         card.style.boxShadow = '';
     });
 });
+
+// ===== NAME HIGHLIGHTING FOR FREDDIE SPARROW & ADAM CALCROFT & HAYDN FELL =====
+function highlightNames() {
+    const nameRegex = /\b(Freddie Sparrow|Adam Calcroft|Haydn Fell|freddie sparrow|adam calcroft|haydn fell)\b(?!<\/mark>)/gi;
+    
+    function walkTextNodes(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.textContent;
+            if (nameRegex.test(text)) {
+                const span = document.createElement('span');
+                span.innerHTML = text.replace(nameRegex, (match) => {
+                    const person = match.toLowerCase().replace(/\s+/g, '-');
+                    return `<mark data-person="${person}" class="name-highlight" tabindex="0">${match}</mark>`;
+                });
+                node.parentNode.replaceChild(span, node);
+                // Re-walk the new span's children
+                for (let i = 0; i < span.childNodes.length; i++) {
+                    walkTextNodes(span.childNodes[i]);
+                }
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE', 'MARK'].includes(node.tagName)) {
+            for (let i = 0; i < node.childNodes.length; i++) {
+                walkTextNodes(node.childNodes[i]);
+            }
+        }
+    }
+    
+    const mainContent = document.querySelector('main, article, .section-inner, body');
+    if (mainContent) {
+        walkTextNodes(mainContent);
+    }
+    
+    // Add hover tooltips to highlighted names
+    document.querySelectorAll('.name-highlight').forEach(mark => {
+        const person = mark.dataset.person;
+        let href1 = 'president.html';
+        let href2 = 'founders.html';
+        let label1 = 'Office';
+        let label2 = 'Founders';
+        
+        if (person === 'haydn-fell') {
+            href1 = 'founders.html';
+            label1 = 'Founders';
+        }
+        
+        const tooltip = document.createElement('div');
+        tooltip.className = 'name-tooltip';
+        tooltip.innerHTML = `
+            <a href="${href1}" class="name-tooltip-link">${label1}</a>
+            <a href="${href2}" class="name-tooltip-link">${label2}</a>
+        `;
+        mark.appendChild(tooltip);
+    });
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', highlightNames);

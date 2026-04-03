@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisions & Roles - Republic of Labradoria</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .division-intro { background: #f5f5f0; padding: 40px; border-radius: 4px; margin-bottom: 40px; }
+        .division-intro h3 { color: #002147; margin-bottom: 10px; }
+        .division-intro p { color: #555; line-height: 1.8; }
+
+        .divisions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 60px; }
+
+        .division-card {
+            background: white;
+            border: 1px solid #e0e0d8;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .division-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,33,71,0.12);
+        }
+
+        .division-header {
+            background: linear-gradient(135deg, #002147 0%, #003366 100%);
+            color: white;
+            padding: 28px 24px;
+            border-bottom: 4px solid #DAA520;
+        }
+
+        .division-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .division-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            color: white;
+        }
+
+        .division-subtitle {
+            font-size: 0.8rem;
+            color: #b0c8e0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .division-body {
+            padding: 28px 24px;
+        }
+
+        .division-body p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .division-roles {
+            background: #f9f9f7;
+            border: 1px solid #e5e5e0;
+            border-radius: 3px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+
+        .division-roles strong {
+            display: block;
+            color: #002147;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .division-roles ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .division-roles li {
+            padding: 4px 0;
+            font-size: 0.85rem;
+            color: #555;
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+        }
+
+        .division-roles li:before {
+            content: "•";
+            color: #DAA520;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .division-join {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #e0e0d8;
+        }
+
+        .division-join-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #002147;
+            color: #DAA520;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s;
+            border: 1px solid #002147;
+        }
+
+        .division-join-btn:hover {
+            background: #DAA520;
+            color: #002147;
+        }
+
+        .roles-explanation {
+            background: #002147;
+            color: white;
+            padding: 40px;
+            border-left: 6px solid #DAA520;
+            margin: 50px 0;
+            border-radius: 4px;
+        }
+
+        .roles-explanation h3 {
+            color: #DAA520;
+            margin-bottom: 12px;
+        }
+
+        .roles-explanation p {
+            color: #b0c8e0;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .active-contributors {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #f5f5f0 0%, #fafaf8 100%);
+            padding: 40px;
+            border-radius: 4px;
+            border: 2px solid #e0e0d8;
+        }
+
+        .active-contributors h3 {
+            color: #002147;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .contributors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .contributor {
+            background: white;
+            padding: 16px;
+            border-left: 3px solid #DAA520;
+            border-radius: 2px;
+        }
+
+        .contributor-name {
+            font-weight: 700;
+            color: #002147;
+            font-size: 0.95rem;
+        }
+
+        .contributor-role {
+            font-size: 0.8rem;
+            color: #DAA520;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .contributor-status {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <div class="header-brand">
+            <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+                <img class="coat-of-arms" src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+                <span>Republic of <em>Labradoria</em></span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="president.html">President</a></li>
+        <li><a href="cabinet.html">Cabinet</a></li>
+        <li><a href="constitution.html">Constitution</a></li>
+        <li><a href="infrastructure.html">Infrastructure</a></li>
+        <li><a href="laws.html">Laws &amp; Values</a></li>
+        <li><a href="divisions.html" class="active">Divisions</a></li>
+        <li><a href="contact.html">Apply</a></li>
+        <li><a href="press.html">Press</a></li>
+    </ul>
+</nav>
+
+<section class="hero" style="padding:60px 24px;">
+    <div class="section-label" style="margin-bottom:10px;">Structured Participation</div>
+    <h1 style="font-size:2.2rem;">Divisions & Roles</h1>
+    <p>Become a contributor in a division of Labradoria, not just a citizen with a title</p>
+</section>
+
+<section class="section">
+    <div class="section-inner" style="max-width:1000px;">
+
+        <div class="division-intro">
+            <h3>Why Divisions Matter</h3>
+            <p>Labradoria citizenship isn't about receiving a title. It's about contributing meaningfully to a nation that actually functions. We organize contributors into three operational divisions where your skills create real value for our community. Each division has clear roles, expectations, and opportunities for advancement.</p>
+        </div>
+
+        <div class="divisions-grid">
+
+            <!-- TECH DIVISION -->
+            <div class="division-card reveal">
+                <div class="division-header">
+                    <div class="division-icon">⚙</div>
+                    <h3>Technology Division</h3>
+                    <div class="division-subtitle">Infrastructure, Development, Systems</div>
+                </div>
+                <div class="division-body">
+                    <p>Build and maintain the digital infrastructure that powers Labradoria. This division oversees our hosting, citizen platforms, security systems, and technological innovation.</p>
+
+                    <div class="division-roles">
+                        <strong>Potential Roles:</strong>
+                        <ul>
+                            <li>Systems Engineer</li>
+                            <li>Developer / Full-Stack Engineer</li>
+                            <li>Security Specialist</li>
+                            <li>DevOps / Infrastructure</li>
+                            <li>Database Administrator</li>
+                            <li>QA / Testing Specialist</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-size:0.85rem;color:#999;">Managed by the Minister of Science, Technology &amp; Innovation. Partners with CookieHost.uk for infrastructure delivery.</p>
+
+                    <div class="division-join">
+                        <a href="contact.html?division=tech" class="division-join-btn">Join Tech Division</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MEDIA DIVISION -->
+            <div class="division-card reveal">
+                <div class="division-header">
+                    <div class="division-icon">📢</div>
+                    <h3>Media Division</h3>
+                    <div class="division-subtitle">Communications, Content, Outreach</div>
+                </div>
+                <div class="division-body">
+                    <p>Tell Labradoria's story to the world. This division creates content, manages communications, handles press relations, and builds our public presence across platforms.</p>
+
+                    <div class="division-roles">
+                        <strong>Potential Roles:</strong>
+                        <ul>
+                            <li>Press Officer</li>
+                            <li>Content Creator / Writer</li>
+                            <li>Social Media Manager</li>
+                            <li>Designer / Graphic Artist</li>
+                            <li>Videographer / Multimedia Producer</li>
+                            <li>Communications Strategist</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-size:0.85rem;color:#999;">Reports to the President's Office. Operates the Press Office and manages diplomatic communications.</p>
+
+                    <div class="division-join">
+                        <a href="contact.html?division=media" class="division-join-btn">Join Media Division</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTELLIGENCE DIVISION -->
+            <div class="division-card reveal">
+                <div class="division-header">
+                    <div class="division-icon">🔍</div>
+                    <h3>Intelligence & Research</h3>
+                    <div class="division-subtitle">Policy, Analysis, Knowledge</div>
+                </div>
+                <div class="division-body">
+                    <p>Conduct research and analysis that informs Labradoria's policies. This division studies international law, emerging technologies, governance best practices, and trends affecting our nation.</p>
+
+                    <div class="division-roles">
+                        <strong>Potential Roles:</strong>
+                        <ul>
+                            <li>Policy Analyst</li>
+                            <li>International Law Researcher</li>
+                            <li>Technology Futures Analyst</li>
+                            <li>Data Analyst</li>
+                            <li>Governance Specialist</li>
+                            <li>Think Tank Researcher</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-size:0.85rem;color:#999;">Partners with the Ministry of Foreign Affairs. Produces white papers, policy recommendations, and strategic analysis.</p>
+
+                    <div class="division-join">
+                        <a href="contact.html?division=research" class="division-join-btn">Join Research Division</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIVE CONTRIBUTORS -->
+            <div class="active-contributors reveal">
+                <h3>Active Contributors</h3>
+                <div class="contributors-list">
+                    <div class="contributor">
+                        <div class="contributor-name">Freddie Sparrow</div>
+                        <div class="contributor-role">President & Constitutional Lead</div>
+                        <div class="contributor-status">Founder — Since 2024</div>
+                    </div>
+                    <div class="contributor">
+                        <div class="contributor-name">Adam Calcroft</div>
+                        <div class="contributor-role">Minister of Technology & Infrastructure</div>
+                        <div class="contributor-status">Co-Founder — CookieNet Operations</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="roles-explanation">
+            <h3>How to Participate</h3>
+            <p><strong>1. Choose Your Division:</strong> Select the division that aligns with your skills and interests. You can indicate preferences during your citizenship application or join an active division after citizenship approval.</p>
+            <p><strong>2. Learn Our Systems:</strong> Upon joining a division, you'll receive training on Labradoria's infrastructure, values, and operational procedures—including access to internal systems and communication platforms.</p>
+            <p><strong>3. Make Meaningful Contributions:</strong> Work on real projects that benefit the nation. Technology division members maintain our hosting; Media division creates our communications; Research division produces policy papers.</p>
+            <p><strong>4. Advance Your Role:</strong> Demonstrate competence and commitment to advance within your division. Leadership positions carry greater responsibility and recognition from the Cabinet.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="seal-footer">
+            <img src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Republic of Labradoria</h4>
+                <p>A structured micronation with real roles, real infrastructure, and real contribution.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Divisions</h4>
+                <ul>
+                    <li><a href="divisions.html">Technology</a></li>
+                    <li><a href="divisions.html">Media</a></li>
+                    <li><a href="divisions.html">Intelligence</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Participate</h4>
+                <ul>
+                    <li><a href="contact.html">Apply for Citizenship</a></li>
+                    <li><a href="divisions.html">Join a Division</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="constitution.html">Constitution</a></li>
+                    <li><a href="laws.html">Laws &amp; Values</a></li>
+                    <li><a href="founders.html">Founders</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Republic of Labradoria. Divisional structure established April 2026.</p>
+        </div>
+    </div>
+</footer>
+
+<button id="back-to-top" title="Back to top">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
