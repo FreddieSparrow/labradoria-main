@@ -4,154 +4,268 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Republic of Labradoria — Official Government Website</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Georgia', serif; background: #f5f5f0; color: #1a1a1a; }
-        .site-header { background: linear-gradient(135deg, #002147 0%, #003366 60%, #004080 100%); color: white; padding: 0; border-bottom: 4px solid #c8a84b; }
-        .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; padding: 20px 24px; }
-        .coat-of-arms { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #c8a84b; object-fit: cover; flex-shrink: 0; }
-        .header-text h1 { font-size: 2rem; font-weight: bold; letter-spacing: 1px; }
-        .header-text .subtitle { font-size: 0.9rem; color: #c8a84b; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
-        nav { background: #002147; border-bottom: 2px solid #c8a84b; }
-        nav ul { max-width: 1200px; margin: 0 auto; list-style: none; display: flex; flex-wrap: wrap; }
-        nav ul li a { display: block; color: #d4d4d4; text-decoration: none; padding: 14px 18px; font-family: Arial, sans-serif; font-size: 0.85rem; font-weight: bold; letter-spacing: 0.5px; text-transform: uppercase; transition: background 0.2s, color 0.2s; }
-        nav ul li a:hover, nav ul li a.active { background: #c8a84b; color: #002147; }
-        .hero { background: #002147; color: white; padding: 50px 24px; text-align: center; border-bottom: 3px solid #c8a84b; }
-        .hero h2 { font-size: 2rem; margin-bottom: 12px; }
-        .hero p { color: #c8a84b; font-family: Arial, sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-        .intro-box { background: white; border: 2px solid #002147; border-left: 6px solid #c8a84b; padding: 30px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); line-height: 1.8; }
-        .symbols { display: flex; justify-content: center; gap: 40px; margin: 30px 0; flex-wrap: wrap; }
-        .symbol { text-align: center; }
-        .symbol img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #c8a84b; object-fit: cover; display: block; margin: 0 auto 10px; }
-        .symbol p { font-family: Arial, sans-serif; font-size: 0.85rem; color: #555; }
-        .section-heading { color: #002147; font-size: 1.6rem; border-bottom: 3px solid #c8a84b; padding-bottom: 10px; margin: 40px 0 20px; }
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .news-card { background: white; border: 1px solid #d0d0c8; border-top: 4px solid #002147; padding: 24px; }
-        .news-card .date { font-family: Arial, sans-serif; font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .news-card h4 { color: #002147; margin-bottom: 10px; }
-        .news-card p { font-size: 0.9rem; line-height: 1.6; color: #444; }
-        .quick-links { background: #002147; color: white; padding: 36px; margin-top: 20px; }
-        .quick-links h3 { color: #c8a84b; text-transform: uppercase; font-family: Arial, sans-serif; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 20px; }
-        .quick-links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
-        .quick-links-grid a { display: block; background: rgba(200,168,75,0.12); border: 1px solid rgba(200,168,75,0.4); color: white; text-decoration: none; padding: 14px 18px; font-family: Arial, sans-serif; font-size: 0.85rem; transition: background 0.2s; }
-        .quick-links-grid a:hover { background: #c8a84b; color: #002147; }
-        .quick-links-grid a .ql-title { font-weight: bold; display: block; margin-bottom: 3px; }
-        .quick-links-grid a .ql-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
-        .quick-links-grid a:hover .ql-sub { color: rgba(0,33,71,0.7); }
-        footer { background: #001a36; color: #aaa; padding: 30px 24px; text-align: center; font-family: Arial, sans-serif; font-size: 0.8rem; border-top: 3px solid #c8a84b; }
-        footer p { margin-bottom: 6px; }
-        footer a { color: #c8a84b; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-    </style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#002147">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ===== ALERT BANNER ===== -->
+<div class="alert-banner" id="alert-banner">
+    <div class="alert-inner">
+        <span class="alert-icon">&#9888;</span>
+        <button id="alert-close" style="background:none;border:1px solid rgba(255,255,255,0.4);color:white;padding:4px 10px;cursor:pointer;font-size:0.8rem;flex-shrink:0;margin-top:2px;align-self:flex-start;">&#x2715; Dismiss</button>
+        <div>
+            <strong>Official Notice to All Foreign Governments, Diplomatic Missions &amp; International Bodies</strong>
+            <p>
+                The Republic of Labradoria is an entirely peaceful and unarmed sovereign nation. The Republic maintains no military forces, holds no weapons of any kind, and bears no hostile intent toward any state, government, or people. Labradoria is a proudly Catholic nation, guided at all times by the principles of peace, charity, and the inherent dignity of the human person.
+                The Republic hereby formally declares and affirms that it does not now possess, nor does it intend at any future time to acquire, develop, produce, stockpile, or otherwise obtain nuclear, chemical, biological, radiological, or any other weapons of mass destruction. In the event that the Republic is subject to any act of aggression, threat, coercion, or hostility by any party whatsoever, the Republic shall respond exclusively through diplomatic channels, recognised international legal mechanisms, and peaceful arbitration — the use of force or violence shall never be countenanced as a response under any circumstances. The Republic invites all nations and international bodies to engage with Labradoria in a spirit of friendship, mutual recognition, and lawful cooperation.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
 <header class="site-header">
     <div class="header-inner">
-        <img class="coat-of-arms" src="/favicon.svg" alt="Seal of Labradoria">
-        <div class="header-text">
-            <h1>Republic of Labradoria</h1>
-            <div class="subtitle">Official Government Website &nbsp;|&nbsp; Established 2026</div>
+        <div class="header-brand">
+            <a href="index.html" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+                <img class="coat-of-arms" src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+                <span>Republic of <em>Labradoria</em></span>
+            </a>
         </div>
     </div>
 </header>
 
+<!-- ===== NAV ===== -->
 <nav>
     <ul>
-        <li><a href="https://labradoria.gov" class="active">Home</a></li>
-        <li><a href="https://president.labradoria.gov">President</a></li>
-        <li><a href="https://cabinet.labradoria.gov">Cabinet</a></li>
-        <li><a href="https://constitution.labradoria.gov">Constitution</a></li>
-        <li><a href="https://territories.labradoria.gov">Territories</a></li>
-        <li><a href="https://press.labradoria.gov">Press Office</a></li>
-        <li><a href="https://contact.labradoria.gov">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="president.html">President</a></li>
+        <li><a href="cabinet.html">Cabinet</a></li>
+        <li><a href="constitution.html">Constitution</a></li>
+        <li><a href="territories.html">Territories</a></li>
+        <li><a href="press.html">Press Office</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
-<div class="hero">
-    <h2>Welcome to the Republic of Labradoria</h2>
-    <p>Sovereign Micronation &nbsp;·&nbsp; Founded on Freedom, Innovation &amp; Communal Governance</p>
-</div>
-
-<div class="container">
-
-    <div class="intro-box">
-        <p>The Republic of Labradoria is a sovereign micronation dedicated to the principles of freedom, innovation, and communal self-governance. Our republic is built upon the consent of its citizens and the voluntary participation of all who wish to join our growing national community. Our official symbols embody the values of loyalty, strength, and visionary leadership.</p>
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <img class="hero-seal" src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of the Republic of Labradoria">
+    <h1>Welcome to the Republic of Labradoria</h1>
+    <p>A sovereign micronation founded on the principles of peace, faith, freedom, and communal self-governance — open to all who share our values.</p>
+    <div class="hero-cta">
+        <a href="constitution.html" class="btn btn-primary">Read the Constitution</a>
+        <a href="territories.html" class="btn btn-outline">Our Territories</a>
     </div>
+</section>
 
-    <div class="symbols">
-        <div class="symbol">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Labrador_Retriever_portrait.jpg/200px-Labrador_Retriever_portrait.jpg" alt="Labrador Retriever">
-            <p><strong>Labrador Retriever</strong><br>Symbolizing loyalty and companionship.</p>
-        </div>
-        <div class="symbol">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Bald_Eagle_Portrait.jpg/200px-Bald_Eagle_Portrait.jpg" alt="Bald Eagle">
-            <p><strong>Bald Eagle</strong><br>Symbolizing freedom and sharp vision.</p>
-        </div>
-    </div>
-
-    <h2 class="section-heading">Latest from Government</h2>
-    <div class="news-grid">
-        <div class="news-card">
-            <div class="date">2 April 2026</div>
-            <h4>Territorial Claims Formally Published</h4>
-            <p>The Ministry of Foreign Affairs has published the official register of Labradoian territorial claims, including Bir Tawil, Marie Byrd Land, and voluntarily ceded private parcels worldwide.</p>
-        </div>
-        <div class="news-card">
-            <div class="date">1 April 2026</div>
-            <h4>Cession Programme Open to All Nations</h4>
-            <p>The Republic now accepts voluntary Instruments of Cession for privately owned land in any country. Contact the Ministry to begin the registration process.</p>
-        </div>
-        <div class="news-card">
-            <div class="date">1 April 2026</div>
-            <h4>Constitution Ratified</h4>
-            <p>The founding constitution of the Republic of Labradoria has been ratified, enshrining the rights of all citizens and the structure of the national government.</p>
-        </div>
-    </div>
-
-    <div class="quick-links">
-        <h3>Government Departments</h3>
-        <div class="quick-links-grid">
-            <a href="https://president.labradoria.gov">
-                <span class="ql-title">Office of the President</span>
-                <span class="ql-sub">president.labradoria.gov</span>
-            </a>
-            <a href="https://cabinet.labradoria.gov">
-                <span class="ql-title">Cabinet of Ministers</span>
-                <span class="ql-sub">cabinet.labradoria.gov</span>
-            </a>
-            <a href="https://constitution.labradoria.gov">
-                <span class="ql-title">Constitution</span>
-                <span class="ql-sub">constitution.labradoria.gov</span>
-            </a>
-            <a href="https://press.labradoria.gov">
-                <span class="ql-title">Press Office</span>
-                <span class="ql-sub">press.labradoria.gov</span>
-            </a>
-            <a href="https://contact.labradoria.gov">
-                <span class="ql-title">Contact Government</span>
-                <span class="ql-sub">contact.labradoria.gov</span>
-            </a>
+<!-- ===== WHAT IS LABRADORIA ===== -->
+<section class="section section-alt reveal">
+    <div class="section-inner">
+        <div class="section-label">About the Republic</div>
+        <h2>What is the Republic of Labradoria?</h2>
+        <hr class="gold-rule">
+        <p class="section-intro">Labradoria is a peacefully constituted sovereign micronation established in 2024 and formally constituted in 2026. We are a nation built upon law, faith, and the voluntary participation of our citizens and allies.</p>
+        <div class="pillars">
+            <div class="pillar reveal">
+                <div class="pillar-icon">&#9961;</div>
+                <h3>Peaceful &amp; Unarmed</h3>
+                <p>Labradoria maintains no military forces and holds no weapons of any kind. We are formally committed to the peaceful resolution of all disputes through diplomacy and international law.</p>
+            </div>
+            <div class="pillar reveal">
+                <div class="pillar-icon">&#10011;</div>
+                <h3>Catholic Nation</h3>
+                <p>The Republic is proudly Catholic, guided by the principles of Christian charity, the common good, and the dignity of every human person, in accordance with Catholic social teaching.</p>
+            </div>
+            <div class="pillar reveal">
+                <div class="pillar-icon">&#9878;</div>
+                <h3>Rule of Law</h3>
+                <p>All organs of the Republic operate under a written Constitution. Citizens' rights are enshrined and protected. All territorial declarations comply with applicable international norms.</p>
+            </div>
+            <div class="pillar reveal">
+                <div class="pillar-icon">&#127758;</div>
+                <h3>Open to the World</h3>
+                <p>Any individual or landowner in any country may join the Republic or voluntarily cede privately owned land to Labradoria. We welcome all who share our values of peace and community.</p>
+            </div>
         </div>
     </div>
+</section>
 
-</div>
+<!-- ===== TERRITORIAL CLAIMS ===== -->
+<section class="section reveal">
+    <div class="section-inner">
+        <div class="section-label">Ministry of Foreign Affairs &amp; Territorial Affairs</div>
+        <h2>Territorial Claims of the Republic</h2>
+        <hr class="gold-rule">
+        <p class="section-intro">The Republic of Labradoria formally asserts sovereign interest over the following territories pursuant to applicable principles of international customary law. All declared lands situated within the jurisdiction of a recognised host state remain fully subject to that state's domestic law.</p>
 
+        <div class="territory-rules">
+            <div class="territory-item reveal">
+                <div class="territory-num">I</div>
+                <div>
+                    <div class="territory-tag">Unclaimed Land — Africa</div>
+                    <h4>Bir Tawil (Egypt/Sudan Border)</h4>
+                    <p>A tract of approximately 2,060 km² claimed by neither the Arab Republic of Egypt nor the Republic of the Sudan, owing to a legal anomaly arising from conflicting boundary conventions of 1899 and 1902. Labradoria asserts sovereign interest pursuant to the doctrine of <em>terra nullius</em>.</p>
+                </div>
+            </div>
+            <div class="territory-item reveal">
+                <div class="territory-num">II</div>
+                <div>
+                    <div class="territory-tag">Unclaimed Land — Antarctica</div>
+                    <h4>Marie Byrd Land, Antarctica</h4>
+                    <p>The sole unclaimed sector of the Antarctic continent (~1.6 million km²). Labradoria asserts declaratory sovereignty while affirming its commitment to the peaceful and scientific purposes of the Antarctic Treaty System.</p>
+                </div>
+            </div>
+            <div class="territory-item reveal">
+                <div class="territory-num">III</div>
+                <div>
+                    <div class="territory-tag">Maritime Interest — High Seas</div>
+                    <h4>International Waters &amp; High Seas</h4>
+                    <p>The Republic asserts its rights as a sovereign state to flag vessels and operate under its jurisdiction on the high seas in accordance with UNCLOS Articles 86–120. No territorial sovereignty over international waters is claimed.</p>
+                </div>
+            </div>
+            <div class="territory-item reveal">
+                <div class="territory-num">IV</div>
+                <div>
+                    <div class="territory-tag">Voluntarily Ceded — Any Jurisdiction Worldwide</div>
+                    <h4>Voluntarily Ceded Private Land — All Nations</h4>
+                    <p>Any individual or legal entity holding valid title to privately owned real property under the domestic law of any country in the world may voluntarily cede that property to Labradoria via a formal Instrument of Cession. Such parcels are incorporated into the Labradoian Territorial Register. All ceded lands remain fully subject to host-nation domestic law.</p>
+                </div>
+            </div>
+        </div>
+        <a href="territories.html" class="btn btn-primary" style="margin-top:8px;">View Full Territorial Register</a>
+    </div>
+</section>
+
+<!-- ===== GET INVOLVED ===== -->
+<section class="section section-dark reveal">
+    <div class="section-inner">
+        <div class="section-label">Participation</div>
+        <h2>How Can I Get Involved?</h2>
+        <hr class="gold-rule">
+        <div class="involve-grid">
+            <div class="involve-card reveal">
+                <h3>&#127968; Cede Your Land</h3>
+                <p>If you own land anywhere in the world, you may voluntarily cede it to the Republic of Labradoria. Contact the Ministry of Foreign Affairs to initiate a formal Instrument of Cession.</p>
+                <a href="contact.html" class="btn btn-outline">Contact the Ministry</a>
+            </div>
+            <div class="involve-card reveal">
+                <h3>&#128196; Become a Citizen</h3>
+                <p>Citizenship of the Republic of Labradoria is open to all who affirm the Constitution and the values of the Republic. Contact our office to enquire about the citizenship process.</p>
+                <a href="contact.html" class="btn btn-outline">Enquire Now</a>
+            </div>
+            <div class="involve-card reveal">
+                <h3>&#127760; Diplomatic Recognition</h3>
+                <p>The Republic of Labradoria welcomes formal and informal diplomatic contact from all nations, governments, and international bodies. We are open to mutual recognition agreements.</p>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== NEWS ===== -->
+<section class="section section-alt reveal">
+    <div class="section-inner">
+        <div class="section-label">Press Office</div>
+        <h2>Latest from Government</h2>
+        <hr class="gold-rule">
+        <div class="news-grid">
+            <div class="news-card reveal">
+                <div class="date">3 April 2026 — President's Office</div>
+                <h4>Presidential Declaration: Recognition of States</h4>
+                <p>The President of the Republic of Labradoria, Freddie Sparrow, hereby formally and officially recognises all member states of the United Nations. The Republic additionally extends formal recognition to the Free Republic of Verdis, the Principality of Sealand, and the Republic of Ironland as sovereign nations. Labradoria invites all recognised states to engage in diplomatic dialogue.</p>
+            </div>
+            <div class="news-card reveal">
+                <div class="date">2 April 2026</div>
+                <h4>Territorial Claims Formally Published</h4>
+                <p>The Ministry of Foreign Affairs has published the official register of Labradoian territorial claims, including Bir Tawil, Marie Byrd Land, and voluntarily ceded private parcels worldwide.</p>
+            </div>
+            <div class="news-card reveal">
+                <div class="date">1 April 2026</div>
+                <h4>Cession Programme Open to All Nations</h4>
+                <p>The Republic now accepts voluntary Instruments of Cession for privately owned land in any country. Contact the Ministry to begin the formal registration process.</p>
+            </div>
+            <div class="news-card reveal">
+                <div class="date">1 April 2026</div>
+                <h4>Constitution Ratified</h4>
+                <p>The founding Constitution of the Republic of Labradoria has been ratified, enshrining the rights of all citizens and the structure of the national government.</p>
+            </div>
+        </div>
+        <a href="press.html" class="news-read-more">&#8594; View all news &amp; press releases</a>
+    </div>
+</section>
+
+<!-- ===== TERMS OF OFFICE ===== -->
+<section class="section reveal">
+    <div class="section-inner">
+        <div class="section-label">Constitutional Provisions</div>
+        <h2>Terms of Office</h2>
+        <hr class="gold-rule">
+        <div class="terms-grid">
+            <div class="term-card reveal">
+                <div class="role">Office of the President</div>
+                <h4>Presidential Term — 5 Years</h4>
+                <p>The President of the Republic serves a term of five (5) years, renewable in accordance with the Constitution. The current term runs from 2026 to 2031. President: <strong>Freddie Sparrow</strong>.</p>
+            </div>
+            <div class="term-card reveal">
+                <div class="role">Ministry of Science, Technology &amp; Innovation</div>
+                <h4>Minister of Technology Term — 10 Years</h4>
+                <p>In recognition of the long-term nature of technological and innovation policy, the Minister of Science, Technology &amp; Innovation serves an extended term of ten (10) years.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-    <p><strong>Republic of Labradoria</strong> &nbsp;|&nbsp; Official Government Website</p>
-    <p>
-        <a href="https://labradoria.gov">Home</a> &nbsp;&bull;&nbsp;
-        <a href="https://president.labradoria.gov">President</a> &nbsp;&bull;&nbsp;
-        <a href="https://cabinet.labradoria.gov">Cabinet</a> &nbsp;&bull;&nbsp;
-        <a href="https://constitution.labradoria.gov">Constitution</a> &nbsp;&bull;&nbsp;
-        <a href="https://territories.labradoria.gov">Territories</a> &nbsp;&bull;&nbsp;
-        <a href="https://press.labradoria.gov">Press Office</a> &nbsp;&bull;&nbsp;
-        <a href="https://contact.labradoria.gov">Contact</a>
-    </p>
-    <p style="margin-top:12px;">&copy; 2026 Republic of Labradoria. All rights reserved.</p>
+    <div class="footer-inner">
+        <div class="seal-footer">
+            <img src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Seal of Labradoria">
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Republic of Labradoria</h4>
+                <p>A sovereign, peaceful, Catholic micronation established in 2024 and formally constituted in 2026. Guided by faith, law, and the common good.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Government</h4>
+                <ul>
+                    <li><a href="president.html">President</a></li>
+                    <li><a href="cabinet.html">Cabinet</a></li>
+                    <li><a href="constitution.html">Constitution</a></li>
+                    <li><a href="territories.html">Territories</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="contact.html">Apply for Citizenship</a></li>
+                    <li><a href="contact.html">Cede Your Land</a></li>
+                    <li><a href="contact.html">Diplomatic Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Press &amp; Contact</h4>
+                <ul>
+                    <li><a href="press.html">Press Office</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index.html">labradoria.org</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Republic of Labradoria. All rights reserved. &nbsp;|&nbsp; <a href="constitution.html">Constitution</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+        </div>
+    </div>
 </footer>
 
+<button id="back-to-top" title="Back to top">&#8593;</button>
+<script src="script.js"></script>
 </body>
 </html>
