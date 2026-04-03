@@ -11,8 +11,196 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#002147">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---- PRESIDENT PAGE ---- */
+        .in-office-bar {
+            background: #001a38;
+            border-bottom: 3px solid #c8a84b;
+            padding: 10px 24px;
+            text-align: center;
+        }
+        .in-office-bar span {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #c8a84b;
+            font-weight: 700;
+        }
+
+        .president-hero {
+            background: linear-gradient(160deg, #001a38 0%, #002f5e 60%, #003e7a 100%);
+            border-bottom: 4px solid #c8a84b;
+            padding: 60px 24px 50px;
+        }
+        .president-hero-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .president-portrait {
+            flex: 0 0 auto;
+            text-align: center;
+        }
+        .president-portrait img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #c8a84b;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            display: block;
+            margin: 0 auto 12px;
+        }
+        .president-portrait .portrait-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c8a84b;
+            font-weight: 700;
+        }
+        .president-info {
+            flex: 1;
+            min-width: 260px;
+            color: white;
+        }
+        .president-info .office-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #c8a84b;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .president-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+        .president-info .president-title {
+            font-size: 1rem;
+            color: #a0c0e0;
+            margin-bottom: 28px;
+        }
+        .president-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(200,168,75,0.3);
+            padding-top: 24px;
+        }
+        .president-stat .stat-label {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7090b0;
+            margin-bottom: 4px;
+        }
+        .president-stat .stat-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .pres-section { padding: 56px 24px; }
+        .pres-section-inner { max-width: 1000px; margin: 0 auto; }
+        .pres-section-alt { background: #f4f6f8; }
+
+        .powers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 8px;
+        }
+        .power-card {
+            background: white;
+            border: 1px solid #e0e0d8;
+            border-left: 4px solid #c8a84b;
+            padding: 22px 24px;
+        }
+        .power-card h4 {
+            color: #002147;
+            font-size: 0.97rem;
+            margin-bottom: 8px;
+        }
+        .power-card p {
+            font-size: 0.86rem;
+            color: #5a6472;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        .oath-block {
+            background: #002147;
+            color: white;
+            padding: 40px 48px;
+            border-left: 6px solid #c8a84b;
+        }
+        .oath-block .oath-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #f0d070;
+            margin-bottom: 14px;
+            display: block;
+        }
+        .oath-block blockquote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: #ddeeff;
+            border-left: 3px solid #c8a84b;
+            padding-left: 24px;
+            margin: 0;
+        }
+
+        .declaration-box {
+            background: white;
+            border: 1px solid #e0e0d8;
+            border-top: 4px solid #002147;
+            padding: 28px 32px;
+            margin-top: 0;
+        }
+        .declaration-box .dec-ref {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c8a84b;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .declaration-box h4 {
+            color: #002147;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .declaration-box .dec-date {
+            font-size: 0.78rem;
+            color: #999;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .declaration-box p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .declaration-box p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
+
+<div class="in-office-bar">
+    <span>&#9632;&nbsp; Currently In Office — Freddie Sparrow, 1st President of the Republic of Labradoria &nbsp;&#9632;</span>
+</div>
 
 <header class="site-header">
     <div class="header-inner">
@@ -37,50 +225,115 @@
     </ul>
 </nav>
 
-<section class="hero" style="padding:50px 24px;">
-    <div class="section-label" style="margin-bottom:10px;">Executive Branch</div>
-    <h1 style="font-size:2rem;">Office of the President</h1>
-    <p>Head of State &amp; Head of Government — Republic of Labradoria</p>
+<!-- ===== PRESIDENTIAL HERO ===== -->
+<div class="president-hero">
+    <div class="president-hero-inner">
+        <div class="president-portrait">
+            <img src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Presidential Seal">
+            <div class="portrait-label">Seal of the Republic</div>
+        </div>
+        <div class="president-info">
+            <span class="office-tag">Office of the President — Republic of Labradoria</span>
+            <h1>Freddie Sparrow</h1>
+            <div class="president-title">Head of State &amp; Head of Government &nbsp;·&nbsp; 1st President of the Republic</div>
+            <div class="president-stats">
+                <div class="president-stat">
+                    <div class="stat-label">In office since</div>
+                    <div class="stat-value">1 April 2026</div>
+                </div>
+                <div class="president-stat">
+                    <div class="stat-label">Term length</div>
+                    <div class="stat-value">5 Years</div>
+                </div>
+                <div class="president-stat">
+                    <div class="stat-label">Term expires</div>
+                    <div class="stat-value">2031</div>
+                </div>
+                <div class="president-stat">
+                    <div class="stat-label">Authority</div>
+                    <div class="stat-value">Constitution of Labradoria</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== IN OFFICE ===== -->
+<section class="pres-section">
+    <div class="pres-section-inner">
+        <div class="section-label">In Office</div>
+        <h2 style="font-size:1.8rem;color:#002147;margin-bottom:8px;">President Freddie Sparrow</h2>
+        <hr class="gold-rule">
+        <p style="line-height:1.85;color:#444;font-size:0.97rem;max-width:760px;margin-bottom:16px;">Freddie Sparrow is the founding President of the Republic of Labradoria, having assumed office on 1 April 2026 upon the formal ratification of the Constitution of the Republic. As Head of State and Head of Government, President Sparrow holds supreme executive authority over all matters of national governance, foreign affairs, and territorial administration of the Republic.</p>
+        <p style="line-height:1.85;color:#444;font-size:0.97rem;max-width:760px;margin-bottom:16px;">President Sparrow conceived of and established the Republic of Labradoria in 2024, with the vision of founding a peaceful, Catholic, and law-governed micronation open to all who share its values of faith, community, and the common good. As the founding President, he has personally overseen the drafting and ratification of the Constitution, the establishment of all Cabinet ministries, the publication of the Labradoian Territorial Register, and the formal conduct of the Republic's first diplomatic declarations.</p>
+        <p style="line-height:1.85;color:#444;font-size:0.97rem;max-width:760px;margin-bottom:0;">Under the Constitution, the President serves a renewable term of five years. President Sparrow is the first and current holder of this office and bears personal responsibility for the foundational development of all institutions of the Republic during its establishment phase.</p>
+    </div>
 </section>
 
-<section class="section reveal">
-    <div class="section-inner" style="max-width:860px;">
-
-        <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;margin-bottom:40px;">
-            <div style="flex:0 0 180px;text-align:center;">
-                <img src="images/Gemini_Generated_Image_inljjrinljjrinlj.png" alt="Presidential Seal"
-                     style="width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center;border:4px solid #c8a84b;display:block;margin:0 auto 12px;">
-                <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:#888;">Presidential Seal</div>
+<!-- ===== EXECUTIVE POWERS ===== -->
+<section class="pres-section pres-section-alt">
+    <div class="pres-section-inner">
+        <div class="section-label">Constitutional Powers</div>
+        <h2 style="font-size:1.8rem;color:#002147;margin-bottom:8px;">Powers &amp; Responsibilities of the President</h2>
+        <hr class="gold-rule">
+        <p style="line-height:1.8;color:#5a6472;font-size:0.97rem;margin-bottom:32px;max-width:720px;">Pursuant to Article V of the Constitution of the Republic of Labradoria, the President holds the following executive powers and responsibilities.</p>
+        <div class="powers-grid">
+            <div class="power-card">
+                <h4>Head of State</h4>
+                <p>The President represents the Republic of Labradoria in all formal, ceremonial, and diplomatic capacities, including the issuance of presidential declarations, the formal recognition of foreign states, and the conduct of international relations.</p>
             </div>
-            <div style="flex:1;min-width:240px;">
-                <div class="section-label">1st President of the Republic</div>
-                <h2 style="font-size:2rem;margin-bottom:4px;">Freddie Sparrow</h2>
-                <p style="color:#666;margin-bottom:20px;">Head of State &amp; Head of Government</p>
-                <hr class="gold-rule">
-                <table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
-                    <tr><td style="padding:8px 0;border-bottom:1px solid #eee;font-weight:700;text-transform:uppercase;font-size:0.7rem;letter-spacing:1px;color:#002147;width:160px;">In office since</td><td style="padding:8px 0;border-bottom:1px solid #eee;">2026</td></tr>
-                    <tr><td style="padding:8px 0;border-bottom:1px solid #eee;font-weight:700;text-transform:uppercase;font-size:0.7rem;letter-spacing:1px;color:#002147;">Term length</td><td style="padding:8px 0;border-bottom:1px solid #eee;">Five (5) years, renewable</td></tr>
-                    <tr><td style="padding:8px 0;border-bottom:1px solid #eee;font-weight:700;text-transform:uppercase;font-size:0.7rem;letter-spacing:1px;color:#002147;">Term expires</td><td style="padding:8px 0;border-bottom:1px solid #eee;">2031</td></tr>
-                    <tr><td style="padding:8px 0;font-weight:700;text-transform:uppercase;font-size:0.7rem;letter-spacing:1px;color:#002147;">Authority</td><td style="padding:8px 0;">Constitution of the Republic of Labradoria</td></tr>
-                </table>
+            <div class="power-card">
+                <h4>Head of Government</h4>
+                <p>The President exercises supreme executive authority over all organs and ministries of the Government, directing policy, issuing lawful orders, and ensuring the faithful execution of the Constitution and the laws of the Republic.</p>
+            </div>
+            <div class="power-card">
+                <h4>Cabinet Appointment &amp; Dismissal</h4>
+                <p>The President alone has the power to appoint and dismiss all Cabinet Ministers, who serve at the pleasure of the President and are accountable to the President for the conduct of their ministerial portfolios.</p>
+            </div>
+            <div class="power-card">
+                <h4>Foreign Affairs &amp; Recognition</h4>
+                <p>The President directs the foreign policy of the Republic, issues formal recognitions of sovereign states, enters into treaties and diplomatic arrangements, and engages with the international community on behalf of the Republic.</p>
+            </div>
+            <div class="power-card">
+                <h4>Passport &amp; Citizenship Authority</h4>
+                <p>The President oversees the issuance of Labradoian passports and travel documents, and, with the Cabinet, holds the authority to grant and, where necessary, revoke citizenship in accordance with the Constitution.</p>
+            </div>
+            <div class="power-card">
+                <h4>Constitutional &amp; Legislative Authority</h4>
+                <p>The President, with the Cabinet, may propose and adopt amendments to the Constitution, issue official decrees and proclamations, and exercise emergency powers in accordance with Article XX of the Constitution.</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="section-label">Biography</div>
-        <h2 style="font-size:1.4rem;margin-bottom:8px;">About the President</h2>
+<!-- ===== OATH OF OFFICE ===== -->
+<section class="pres-section">
+    <div class="pres-section-inner">
+        <div class="section-label">Presidential Oath</div>
+        <h2 style="font-size:1.8rem;color:#002147;margin-bottom:8px;">Oath of Office</h2>
         <hr class="gold-rule">
-        <p style="line-height:1.8;color:#444;margin-bottom:14px;">President Freddie Sparrow serves as the founding President of the Republic of Labradoria, having assumed office upon the ratification of the Constitution in 2026. As Head of State and Head of Government, President Sparrow holds executive authority over all matters of national governance, foreign affairs, and territorial administration of the Republic.</p>
-        <p style="line-height:1.8;color:#444;margin-bottom:40px;">Under the Constitution of the Republic, the President serves a renewable term of five (5) years. President Sparrow is the first to hold this office and is responsible for the establishment of all foundational institutions of the Republic, including the Cabinet of Ministers, the Ministry of Foreign Affairs and Territorial Affairs, and the formal publication of the Labradoian Territorial Register.</p>
-
-        <div style="background:#002147;color:white;padding:32px 36px;margin-bottom:40px;">
-            <div class="section-label" style="color:#f0d070;margin-bottom:10px;">Presidential Oath of Office</div>
-            <blockquote style="font-style:italic;line-height:1.8;font-size:1.05rem;color:#eee;border-left:3px solid #c8a84b;padding-left:20px;">"I, Freddie Sparrow, do solemnly affirm that I will faithfully execute the Office of President of the Republic of Labradoria, and will to the best of my ability, preserve, protect, and uphold the Constitution and the sovereign interests of the Republic and its people."</blockquote>
+        <p style="color:#5a6472;font-size:0.9rem;margin-bottom:28px;">Sworn upon the assumption of office, 1 April 2026, upon the ratification of the Constitution of the Republic of Labradoria.</p>
+        <div class="oath-block">
+            <span class="oath-label">Presidential Oath of Office — Republic of Labradoria</span>
+            <blockquote>"I, Freddie Sparrow, do solemnly affirm that I will faithfully execute the Office of President of the Republic of Labradoria, and will to the best of my ability, preserve, protect, and uphold the Constitution and the sovereign interests of the Republic and its people."</blockquote>
         </div>
+    </div>
+</section>
 
-        <div class="section-label">Presidential Declaration</div>
-        <h2 style="font-size:1.4rem;margin-bottom:8px;">Recognition of States — 3 April 2026</h2>
+<!-- ===== DECLARATIONS ===== -->
+<section class="pres-section pres-section-alt">
+    <div class="pres-section-inner">
+        <div class="section-label">Presidential Declarations</div>
+        <h2 style="font-size:1.8rem;color:#002147;margin-bottom:8px;">Official Declarations &amp; Acts</h2>
         <hr class="gold-rule">
-        <p style="line-height:1.8;color:#444;">The President of the Republic of Labradoria hereby formally and officially recognises all member states of the United Nations as sovereign nations. The Republic additionally extends formal recognition to the Free Republic of Verdis, the Principality of Sealand, and the Republic of Ironland. The Republic of Labradoria invites all recognised states to engage in diplomatic dialogue and mutual cooperation.</p>
+        <div class="declaration-box">
+            <span class="dec-ref">Ref: LAB/PRES/2026/001</span>
+            <h4>Presidential Declaration: Recognition of Sovereign States</h4>
+            <span class="dec-date">Issued: 3 April 2026 &nbsp;·&nbsp; President's Office, Republic of Labradoria</span>
+            <p>The President of the Republic of Labradoria hereby formally and officially recognises all member states of the United Nations as sovereign nations. The Republic additionally extends formal recognition to the <strong>Free Republic of Verdis</strong>, the <strong>Principality of Sealand</strong>, and the <strong>Republic of Ironland</strong>. The Republic of Labradoria invites all recognised states to engage in diplomatic dialogue and mutual cooperation.</p>
+            <p>The Republic reaffirms that it is an entirely peaceful and unarmed sovereign nation. It maintains no military forces, holds no weapons, and formally declares it will never acquire nuclear, chemical, biological, radiological, or any other weapons of mass destruction. Any dispute shall be resolved exclusively through diplomatic channels and peaceful mechanisms.</p>
+            <a href="announcement.html" style="display:inline-block;margin-top:4px;font-size:0.82rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Read full declaration &#8594;</a>
+        </div>
     </div>
 </section>
 
