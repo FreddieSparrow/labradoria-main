@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Territorial Claims — Republic of Labradoria</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Georgia', serif; background: #f5f5f0; color: #1a1a1a; }
+
+        /* Header */
+        .site-header {
+            background: linear-gradient(135deg, #002147 0%, #003366 60%, #004080 100%);
+            color: white;
+            padding: 0;
+            border-bottom: 4px solid #c8a84b;
+        }
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 20px 24px;
+        }
+        .coat-of-arms {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #c8a84b;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .header-text h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .header-text .subtitle {
+            font-size: 0.9rem;
+            color: #c8a84b;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* Nav */
+        nav {
+            background: #002147;
+            border-bottom: 2px solid #c8a84b;
+        }
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            display: block;
+            color: #d4d4d4;
+            text-decoration: none;
+            padding: 14px 18px;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: #c8a84b;
+            color: #002147;
+        }
+
+        /* Page title banner */
+        .page-banner {
+            background: #002147;
+            color: white;
+            padding: 40px 24px;
+            text-align: center;
+            border-bottom: 3px solid #c8a84b;
+        }
+        .page-banner h2 {
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        .page-banner .dept-label {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #c8a84b;
+            margin-top: 6px;
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Legal declaration box */
+        .declaration-box {
+            background: white;
+            border: 2px solid #002147;
+            border-left: 6px solid #c8a84b;
+            padding: 30px 36px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .declaration-box h3 {
+            color: #002147;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #c8a84b;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
+        }
+        .declaration-box p {
+            line-height: 1.8;
+            color: #2a2a2a;
+            margin-bottom: 12px;
+        }
+        .declaration-box p:last-child { margin-bottom: 0; }
+
+        /* Territory cards */
+        .territory-section h2 {
+            color: #002147;
+            font-size: 1.6rem;
+            border-bottom: 3px solid #c8a84b;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .territory-card {
+            background: white;
+            border: 1px solid #d0d0c8;
+            border-top: 4px solid #002147;
+            margin-bottom: 36px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .territory-card-inner {
+            display: flex;
+            gap: 0;
+        }
+        .territory-image-col {
+            flex: 0 0 320px;
+            max-width: 320px;
+            background: #eee;
+        }
+        .territory-image-col img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+        .territory-image-caption {
+            padding: 8px 12px;
+            font-size: 0.75rem;
+            color: #555;
+            font-family: Arial, sans-serif;
+            background: #f0f0e8;
+            border-top: 1px solid #d0d0c8;
+        }
+        .territory-text-col {
+            flex: 1;
+            padding: 28px 32px;
+        }
+        .territory-text-col h3 {
+            color: #002147;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        .territory-label {
+            display: inline-block;
+            background: #002147;
+            color: #c8a84b;
+            font-family: Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 3px 10px;
+            margin-bottom: 14px;
+        }
+        .territory-text-col p {
+            line-height: 1.75;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        .territory-meta {
+            background: #f5f5f0;
+            border-top: 1px solid #d0d0c8;
+            padding: 12px 20px;
+            display: flex;
+            gap: 32px;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        .territory-meta span strong {
+            color: #002147;
+            display: block;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        /* Legal notes */
+        .legal-notes {
+            background: #fff8e7;
+            border: 1px solid #c8a84b;
+            padding: 28px 32px;
+            margin-top: 40px;
+        }
+        .legal-notes h3 {
+            color: #002147;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legal-notes ol {
+            padding-left: 20px;
+        }
+        .legal-notes ol li {
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: #2a2a2a;
+            font-size: 0.92rem;
+        }
+
+        /* Quick links panel */
+        .quick-links {
+            background: #002147;
+            color: white;
+            padding: 36px;
+            margin-top: 40px;
+        }
+        .quick-links h3 {
+            color: #c8a84b;
+            text-transform: uppercase;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+        .quick-links-grid a {
+            display: block;
+            background: rgba(200,168,75,0.12);
+            border: 1px solid rgba(200,168,75,0.4);
+            color: white;
+            text-decoration: none;
+            padding: 14px 18px;
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .quick-links-grid a:hover {
+            background: #c8a84b;
+            color: #002147;
+            border-color: #c8a84b;
+        }
+        .quick-links-grid a .ql-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .quick-links-grid a .ql-sub {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .quick-links-grid a:hover .ql-sub { color: rgba(0,33,71,0.7); }
+
+        /* Footer */
+        footer {
+            background: #001a36;
+            color: #aaa;
+            padding: 30px 24px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            border-top: 3px solid #c8a84b;
+        }
+        footer p { margin-bottom: 6px; }
+        footer a { color: #c8a84b; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 700px) {
+            .territory-card-inner { flex-direction: column; }
+            .territory-image-col { max-width: 100%; flex: none; }
+            .header-text h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <img class="coat-of-arms" src="/favicon.svg" alt="Seal of Labradoria">
+        <div class="header-text">
+            <h1>Republic of Labradoria</h1>
+            <div class="subtitle">Official Government of the Republic &nbsp;|&nbsp; Established 2026</div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="https://labradoria.gov">Home</a></li>
+        <li><a href="https://president.labradoria.gov">President</a></li>
+        <li><a href="https://cabinet.labradoria.gov">Cabinet</a></li>
+        <li><a href="https://constitution.labradoria.gov">Constitution</a></li>
+        <li><a href="https://territories.labradoria.gov" class="active">Territories</a></li>
+        <li><a href="https://press.labradoria.gov">Press Office</a></li>
+        <li><a href="https://contact.labradoria.gov">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="page-banner">
+    <div class="dept-label">Ministry of Foreign Affairs &amp; Territorial Affairs</div>
+    <h2>Territorial Claims of the Republic</h2>
+</div>
+
+<div class="container">
+
+    <!-- Official Declaration -->
+    <div class="declaration-box">
+        <h3>Official Declaration of Territorial Sovereignty</h3>
+        <p>
+            The Republic of Labradoria hereby formally asserts and declares sovereign interest over the territories enumerated herein, pursuant to the principles of international customary law, including but not limited to the doctrine of <em>terra nullius</em> as applicable to lands not subject to the effective sovereignty of any recognized state. This declaration is made with full legal intent and is recorded in the official register of the Ministry of Foreign Affairs and Territorial Affairs.
+        </p>
+        <p>
+            It is hereby acknowledged that the Republic of Labradoria has not yet effected physical presence upon all claimed territories. Consistent with established precedent in micronational and customary international law, sovereignty may be established through formal declaration, public notice, and administrative intent, pending the establishment of physical administration.
+        </p>
+        <p>
+            Furthermore, the Republic of Labradoria recognizes and affirms the inviolable right of private property ownership. Any individual or legal entity that holds valid title to land under the domestic laws of <em>any country or jurisdiction in the world</em> may, through a voluntary Instrument of Cession executed before a Labradoian notarial officer, transfer and cede said property into the sovereign territory of the Republic of Labradoria. Such ceded territories shall be incorporated into the Labradoian territorial register accordingly. Ceded territories presently include privately held parcels located within the territory of the French Republic, and Labradoria actively welcomes further voluntary cessions from landowners across all nations.
+        </p>
+        <p>
+            <strong>Important notice:</strong> All territories declared herein, including voluntarily ceded private lands, remain subject to the domestic laws, statutes, regulations, and judicial authority of the host nation or nations in which they are physically situated, unless and until full reciprocal sovereignty is recognized by the international community. Labradoian law operates concurrently and does not supersede the legal jurisdiction of any host state.
+        </p>
+    </div>
+
+    <!-- Territories -->
+    <div class="territory-section">
+        <h2>Enumerated Claimed Territories</h2>
+
+        <!-- Bir Tawil -->
+        <div class="territory-card">
+            <div class="territory-card-inner">
+                <div class="territory-image-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bir_Tawil_on_the_globe_%28Africa_centered%29.svg/400px-Bir_Tawil_on_the_globe_%28Africa_centered%29.svg.png"
+                         alt="Bir Tawil location on globe">
+                    <div class="territory-image-caption">Bir Tawil — location relative to Africa and the Nile corridor. (Wikimedia Commons)</div>
+                </div>
+                <div class="territory-text-col">
+                    <div class="territory-label">Unclaimed Land — Africa</div>
+                    <h3>I. Bir Tawil</h3>
+                    <p>
+                        Bir Tawil is an approximately 2,060 km² tract of arid land situated along the border between the Arab Republic of Egypt and the Republic of the Sudan. Due to a legal anomaly arising from the conflicting boundary conventions of 1899 and 1902, neither Egypt nor Sudan asserts sovereign claim over this territory, as acceptance of Bir Tawil by either party would necessitate the forfeiture of a larger and more strategically valuable region.
+                    </p>
+                    <p>
+                        Bir Tawil therefore remains one of the very few extant parcels of land on Earth to which no sovereign state asserts a legal claim. The Republic of Labradoria formally asserts sovereign interest over this territory pursuant to the doctrine of <em>terra nullius</em>, and registers this claim in the official Labradoian Territorial Register effective upon publication of this declaration.
+                    </p>
+                </div>
+            </div>
+            <div class="territory-meta">
+                <span><strong>Region</strong>Northeast Africa</span>
+                <span><strong>Area</strong>~2,060 km²</span>
+                <span><strong>Status</strong>Unclaimed by any recognized state</span>
+                <span><strong>Claim basis</strong>Terra nullius</span>
+            </div>
+        </div>
+
+        <!-- Marie Byrd Land -->
+        <div class="territory-card">
+            <div class="territory-card-inner">
+                <div class="territory-image-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Marie_Byrd_Land_in_Antarctica.svg/400px-Marie_Byrd_Land_in_Antarctica.svg.png"
+                         alt="Marie Byrd Land in Antarctica">
+                    <div class="territory-image-caption">Marie Byrd Land highlighted within the Antarctic continent. (Wikimedia Commons)</div>
+                </div>
+                <div class="territory-text-col">
+                    <div class="territory-label">Unclaimed Land — Antarctica</div>
+                    <h3>II. Marie Byrd Land, Antarctica</h3>
+                    <p>
+                        Marie Byrd Land is the only sector of the Antarctic continent that is not subject to a formal territorial claim by any signatory or non-signatory state. Comprising approximately 1.6 million km² of glaciated terrain in West Antarctica, it represents the largest unclaimed land mass remaining on Earth.
+                    </p>
+                    <p>
+                        The Republic of Labradoria asserts declaratory sovereignty over Marie Byrd Land. It is duly noted that the Antarctic Treaty System (1959), to which Labradoria is not a signatory, provides a framework governing activities in Antarctica including prohibitions on military use and mineral resource extraction. Labradoria affirms its commitment to the peaceful and scientific purposes enshrined in those principles while reserving its sovereign rights under customary international law.
+                    </p>
+                </div>
+            </div>
+            <div class="territory-meta">
+                <span><strong>Region</strong>West Antarctica</span>
+                <span><strong>Area</strong>~1,610,000 km²</span>
+                <span><strong>Status</strong>Only unclaimed Antarctic sector</span>
+                <span><strong>Claim basis</strong>Terra nullius; declaratory sovereignty</span>
+            </div>
+        </div>
+
+        <!-- International Waters -->
+        <div class="territory-card">
+            <div class="territory-card-inner">
+                <div class="territory-image-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Oceans_and_seas_boundaries_map-en.svg/500px-Oceans_and_seas_boundaries_map-en.svg.png"
+                         alt="World Oceans map">
+                    <div class="territory-image-caption">World ocean boundaries and international maritime zones. (Wikimedia Commons)</div>
+                </div>
+                <div class="territory-text-col">
+                    <div class="territory-label">Maritime Interest — International Waters</div>
+                    <h3>III. International Waters &amp; High Seas</h3>
+                    <p>
+                        The Republic of Labradoria declares its sovereign interest in and right of navigation, transit, and resource utilization within the international waters of the world's oceans beyond the Exclusive Economic Zones (EEZs) of any coastal state, as defined under the United Nations Convention on the Law of the Sea (UNCLOS), Articles 86–120.
+                    </p>
+                    <p>
+                        Labradoria does not assert territorial sovereignty over international waters, which by established law are held in common for all nations. Rather, this declaration affirms Labradoria's rights as a sovereign state to flag vessels, operate under its jurisdiction on the high seas, and participate in the governance of common maritime resources in accordance with international law.
+                    </p>
+                </div>
+            </div>
+            <div class="territory-meta">
+                <span><strong>Region</strong>Global High Seas</span>
+                <span><strong>Basis</strong>UNCLOS right of navigation</span>
+                <span><strong>Status</strong>Common heritage — no sovereignty claimed</span>
+                <span><strong>Flag</strong>Labradoian maritime flag registry</span>
+            </div>
+        </div>
+
+        <!-- Voluntarily Ceded Private Lands — Global -->
+        <div class="territory-card">
+            <div class="territory-card-inner">
+                <div class="territory-image-col">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/500px-World_map_-_low_resolution.svg.png"
+                         alt="World map">
+                    <div class="territory-image-caption">Labradoria accepts voluntary cessions of privately owned land in any country worldwide. (Wikimedia Commons)</div>
+                </div>
+                <div class="territory-text-col">
+                    <div class="territory-label">Voluntarily Ceded Private Land — Worldwide</div>
+                    <h3>IV. Voluntarily Ceded Private Parcels — Any Jurisdiction</h3>
+                    <p>
+                        The Republic of Labradoria asserts that any individual or legal entity who holds valid title to privately owned real property under the domestic law of <em>any country or jurisdiction in the world</em> may voluntarily cede that property to the Republic of Labradoria through a duly executed Instrument of Cession. Upon registration, such parcels are formally incorporated into the Labradoian Territorial Register as sovereign Labradoian territory.
+                    </p>
+                    <p>
+                        Ceded territories presently include privately owned parcels situated within the French Republic, and Labradoria actively welcomes further voluntary cessions from landowners across all nations. No parcel is too small; every cession expands the sovereign territory of the Republic and is recorded in perpetuity in the official register.
+                    </p>
+                    <p>
+                        It is expressly and unambiguously acknowledged that all voluntarily ceded parcels, regardless of their location, remain at all times fully subject to the domestic laws, regulatory authority, and judicial jurisdiction of the host nation in which they are physically situated. Labradoian concurrent sovereignty does not abrogate, supersede, or in any way interfere with the titleholder's obligations under host-nation law. Labradoria expressly disavows any intent to circumvent the laws of any host state.
+                    </p>
+                    <p>
+                        Landowners wishing to cede property in France, the United Kingdom, Germany, Spain, Italy, the United States, or any other nation are invited to contact the Ministry of Foreign Affairs and Territorial Affairs to initiate the cession process.
+                    </p>
+                </div>
+            </div>
+            <div class="territory-meta">
+                <span><strong>Region</strong>Worldwide — any jurisdiction</span>
+                <span><strong>Basis</strong>Voluntary Instrument of Cession</span>
+                <span><strong>Host jurisdiction</strong>Host-nation law applies in full</span>
+                <span><strong>Registry</strong>Labradoian Territorial Register</span>
+            </div>
+        </div>
+
+    </div><!-- /territory-section -->
+
+    <!-- Legal Notes -->
+    <div class="legal-notes">
+        <h3>&#9878; Legal Notes &amp; Disclaimers</h3>
+        <ol>
+            <li><strong>Concurrent jurisdiction:</strong> All territories declared herein that are physically situated within the boundaries of a recognized sovereign state remain fully and completely subject to the domestic laws of that state. Labradoian sovereignty operates in a concurrent and ceremonial capacity and does not supersede host-nation law.</li>
+            <li><strong>Declaration without physical presence:</strong> Labradoria's claims to <em>terra nullius</em> territories (Bir Tawil, Marie Byrd Land) are made by formal declaration and recorded notice, consistent with historical and micronational precedents for establishing sovereign intent. Physical administration shall be established in due course.</li>
+            <li><strong>No international recognition presumed:</strong> These claims do not presuppose recognition by the United Nations, any member state thereof, or any other international body. Labradoria actively pursues recognition through diplomatic channels.</li>
+            <li><strong>Antarctic Treaty:</strong> Labradoian activities in the Antarctic region shall be conducted in a manner consistent with the peaceful and scientific principles of the Antarctic Treaty System, notwithstanding Labradoria's non-signatory status.</li>
+            <li><strong>Private cessions:</strong> The right of private landowners to cede property to Labradoria is exercised voluntarily. Such cessions do not transfer legal title under the law of the host nation and do not relieve the titleholder of any obligations under that nation's law.</li>
+        </ol>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="quick-links">
+        <h3>Government Links</h3>
+        <div class="quick-links-grid">
+            <a href="https://president.labradoria.gov">
+                <span class="ql-title">Office of the President</span>
+                <span class="ql-sub">president.labradoria.gov</span>
+            </a>
+            <a href="https://cabinet.labradoria.gov">
+                <span class="ql-title">Cabinet of Ministers</span>
+                <span class="ql-sub">cabinet.labradoria.gov</span>
+            </a>
+            <a href="https://constitution.labradoria.gov">
+                <span class="ql-title">Constitution</span>
+                <span class="ql-sub">constitution.labradoria.gov</span>
+            </a>
+            <a href="https://press.labradoria.gov">
+                <span class="ql-title">Press Office</span>
+                <span class="ql-sub">press.labradoria.gov</span>
+            </a>
+            <a href="https://contact.labradoria.gov">
+                <span class="ql-title">Contact Government</span>
+                <span class="ql-sub">contact.labradoria.gov</span>
+            </a>
+        </div>
+    </div>
+
+</div><!-- /container -->
+
+<footer>
+    <p><strong>Republic of Labradoria</strong> &nbsp;|&nbsp; Ministry of Foreign Affairs &amp; Territorial Affairs</p>
+    <p>
+        <a href="https://labradoria.gov">Home</a> &nbsp;&bull;&nbsp;
+        <a href="https://president.labradoria.gov">President</a> &nbsp;&bull;&nbsp;
+        <a href="https://cabinet.labradoria.gov">Cabinet</a> &nbsp;&bull;&nbsp;
+        <a href="https://constitution.labradoria.gov">Constitution</a> &nbsp;&bull;&nbsp;
+        <a href="https://press.labradoria.gov">Press Office</a> &nbsp;&bull;&nbsp;
+        <a href="https://contact.labradoria.gov">Contact</a>
+    </p>
+    <p style="margin-top:12px;">&copy; 2026 Republic of Labradoria. All rights reserved. &nbsp;|&nbsp; This document constitutes an official government publication.</p>
+</footer>
+
+</body>
+</html>

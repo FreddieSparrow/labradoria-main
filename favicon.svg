@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Outer ring: double border -->
+  <circle cx="100" cy="100" r="98" fill="#111111"/>
+  <circle cx="100" cy="100" r="94" fill="white"/>
+  <circle cx="100" cy="100" r="88" fill="#111111"/>
+  <circle cx="100" cy="100" r="83" fill="white"/>
+
+  <!-- Stars around the ring -->
+  <g fill="#111111">
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(0 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(40 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(80 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(120 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(160 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(200 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(240 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(280 100 100)"/>
+    <polygon points="100,10 102,16 108,16 103,20 105,26 100,22 95,26 97,20 92,16 98,16" transform="rotate(320 100 100)"/>
+  </g>
+
+  <!-- Inner content area -->
+  <circle cx="100" cy="100" r="78" fill="white"/>
+
+  <!-- Shield / heraldic backing -->
+  <path d="M100,22 L140,35 L150,80 Q150,125 100,155 Q50,125 50,80 L60,35 Z" fill="#111111"/>
+  <path d="M100,28 L136,40 L145,82 Q145,122 100,148 Q55,122 55,82 L64,40 Z" fill="white"/>
+
+  <!-- Eagle (on top of shield, wings spread) -->
+  <!-- Eagle body -->
+  <ellipse cx="100" cy="58" rx="14" ry="10" fill="#111111"/>
+  <!-- Eagle head (white) -->
+  <ellipse cx="100" cy="45" rx="9" ry="8" fill="white" stroke="#111111" stroke-width="1"/>
+  <!-- Eagle beak -->
+  <polygon points="107,46 116,50 107,53" fill="#111111"/>
+  <!-- Eagle eye -->
+  <circle cx="105" cy="44" r="2" fill="#111111"/>
+  <!-- Eagle wing left -->
+  <path d="M86,58 Q60,48 42,60 Q55,65 86,64 Z" fill="#111111"/>
+  <!-- Eagle wing right -->
+  <path d="M114,58 Q140,48 158,60 Q145,65 114,64 Z" fill="#111111"/>
+  <!-- Wing white highlight left -->
+  <path d="M86,59 Q65,51 50,61 Q63,65 86,63 Z" fill="white" opacity="0.25"/>
+  <!-- Wing white highlight right -->
+  <path d="M114,59 Q135,51 150,61 Q137,65 114,63 Z" fill="white" opacity="0.25"/>
+  <!-- Eagle tail feathers -->
+  <polygon points="93,67 107,67 100,76" fill="#111111"/>
+
+  <!-- Labrador head on shield -->
+  <!-- Main head -->
+  <ellipse cx="100" cy="105" rx="26" ry="24" fill="#111111"/>
+  <!-- Inner face outline -->
+  <ellipse cx="100" cy="105" rx="22" ry="20" fill="white"/>
+  <!-- Muzzle -->
+  <ellipse cx="100" cy="116" rx="13" ry="9" fill="#e8e8e8" stroke="#111111" stroke-width="1"/>
+  <!-- Nose -->
+  <ellipse cx="100" cy="111" rx="5.5" ry="4" fill="#111111"/>
+  <!-- Nostrils -->
+  <ellipse cx="97" cy="113" rx="1.5" ry="1" fill="white"/>
+  <ellipse cx="103" cy="113" rx="1.5" ry="1" fill="white"/>
+  <!-- Eyes -->
+  <circle cx="91" cy="101" r="4" fill="#111111"/>
+  <circle cx="109" cy="101" r="4" fill="#111111"/>
+  <!-- Eye whites -->
+  <circle cx="92.5" cy="99.5" r="1.2" fill="white"/>
+  <circle cx="110.5" cy="99.5" r="1.2" fill="white"/>
+  <!-- Eyebrow marks -->
+  <ellipse cx="91" cy="96" rx="4" ry="1.5" fill="#111111"/>
+  <ellipse cx="109" cy="96" rx="4" ry="1.5" fill="#111111"/>
+  <!-- Ears -->
+  <ellipse cx="80" cy="110" rx="9" ry="14" fill="#111111" transform="rotate(-8 80 110)"/>
+  <ellipse cx="120" cy="110" rx="9" ry="14" fill="#111111" transform="rotate(8 120 110)"/>
+
+  <!-- Text band at bottom of inner circle -->
+  <path id="textarc" d="M 28,130 A 78,78 0 0,0 172,130" fill="none"/>
+  <text font-family="Georgia, serif" font-size="9" fill="#111111" font-weight="bold" letter-spacing="2" text-anchor="middle">
+    <textPath href="#textarc" startOffset="50%">REPUBLIC OF LABRADORIA · EST. MMXXVI ·</textPath>
+  </text>
+</svg>
