@@ -1,14 +1,19 @@
-// ---- Dismissible alert banner ----
+// ---- Dismissible alert banner — show exactly once across all sessions ----
 const alertBanner = document.getElementById('alert-banner');
 if (alertBanner) {
     if (localStorage.getItem('labradoria-alert-dismissed') === '1') {
+        // Already seen — hide immediately, never show again
         alertBanner.style.display = 'none';
+    } else {
+        // First visit — show the banner, then mark it as seen immediately
+        // so returning to this page (or any page) won't show it again
+        localStorage.setItem('labradoria-alert-dismissed', '1');
     }
+    // Still wire up any explicit close/dismiss button if present
     const closeBtn = document.getElementById('alert-close');
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             alertBanner.style.display = 'none';
-            localStorage.setItem('labradoria-alert-dismissed', '1');
         });
     }
 }
@@ -105,3 +110,75 @@ function highlightNames() {
 
 // Run on page load
 document.addEventListener('DOMContentLoaded', highlightNames);
+
+// ===== FOOTER ADDONS (social links + translation disclaimer) =====
+document.addEventListener('DOMContentLoaded', function() {
+    var fb = document.querySelector('.footer-bottom');
+    if (fb) {
+        var social = document.createElement('p');
+        social.style.cssText = 'margin-top:10px;font-size:0.78rem;';
+        social.innerHTML = '<a href="https://www.youtube.com/@labradoriaofficial" target="_blank" rel="noopener" style="color:#c8a84b;margin-right:16px;">&#9654; YouTube</a>'
+            + '<a href="https://www.linkedin.com/company/labradoria" target="_blank" rel="noopener" style="color:#c8a84b;">in LinkedIn</a>';
+        fb.appendChild(social);
+
+        var disc = document.createElement('p');
+        disc.style.cssText = 'margin-top:6px;font-size:0.72rem;color:#999;';
+        disc.textContent = 'Translations are provided by Google Translate for convenience only. The Republic of Labradoria accepts no responsibility for inaccuracies in machine-translated content. The English version of all documents is authoritative.';
+        fb.appendChild(disc);
+    }
+});
+
+// ===== LANGUAGE SWITCHER =====
+function setLanguage(lang) {
+    localStorage.setItem('labradoria-lang', lang);
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    if (lang === 'en') {
+        // Reload without translate cookie to restore English
+        var gt = document.cookie.match(/googtrans=([^;]+)/);
+        if (gt) {
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.' + location.hostname;
+            location.reload();
+        }
+        return;
+    }
+    var sel = document.querySelector('#google_translate_element select');
+    if (sel) {
+        sel.value = lang;
+        sel.dispatchEvent(new Event('change'));
+    } else {
+        setTimeout(function() { setLanguage(lang); }, 600);
+    }
+}
+
+// Map country code → language
+var COUNTRY_LANG_MAP = {
+    'FR':'fr','BE':'fr','LU':'fr','MC':'fr','CI':'fr','SN':'fr','CM':'fr',
+    'DE':'de','AT':'de','LI':'de',
+    'RU':'ru','BY':'ru','KZ':'ru','KG':'ru',
+    'CN':'zh-CN','TW':'zh-CN','HK':'zh-CN','SG':'zh-CN','MO':'zh-CN'
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    var saved = localStorage.getItem('labradoria-lang');
+    if (saved) {
+        // Restore saved preference
+        document.querySelectorAll('.lang-btn').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.lang === saved);
+        });
+        if (saved !== 'en') {
+            setTimeout(function() { setLanguage(saved); }, 1200);
+        }
+    } else {
+        // Auto-detect by IP (silent fail if API unavailable)
+        fetch('https://api.country.is/')
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                var lang = COUNTRY_LANG_MAP[data.country];
+                if (lang) setLanguage(lang);
+            })
+            .catch(function() {});
+    }
+});

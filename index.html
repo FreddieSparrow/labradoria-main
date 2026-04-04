@@ -11,12 +11,14 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#002147">
     <link rel="stylesheet" href="style.css">
+    <script>if(localStorage.getItem('labradoria-alert-dismissed')==='1'){document.head.insertAdjacentHTML('beforeend','<style>#alert-banner{display:none!important}<\/style>');}</script>
+    <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'fr,de,ru,zh-CN',autoDisplay:false},'google_translate_element');}</script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
 <!-- Small fixed top-left notice tab -->
-<a id="notice-tab" href="announcement.html" target="_blank" rel="noopener"
-   onclick="localStorage.setItem('labradoria-alert-dismissed','1'); document.getElementById('alert-banner').style.display='none';">
+<a id="notice-tab" href="announcement.html" target="_blank" rel="noopener">
     ! Govt. Notice
 </a>
 
@@ -43,8 +45,16 @@
                 <span>Republic of <em>Labradoria</em></span>
             </a>
         </div>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="zh-CN" onclick="setLanguage('zh-CN')">中文</button>
+        </div>
     </div>
 </header>
+<div id="google_translate_element" style="display:none;"></div>
 
 <!-- ===== NAV ===== -->
 <nav>
@@ -57,8 +67,11 @@
         <li><a href="infrastructure.html">Infrastructure</a></li>
         <li><a href="territories.html">Territories</a></li>
         <li><a href="divisions.html">Divisions</a></li>
-        <li><a href="contact.html">Contact &amp; Citizenship</a></li>
+        <li><a href="passport.html">Passport</a></li>
+        <li><a href="identity-card.html">ID Card</a></li>
+        <li><a href="flag.html">Flag</a></li>
         <li><a href="press.html">Press Office</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
@@ -184,7 +197,7 @@
             <div class="news-card reveal">
                 <div class="date">2 April 2026</div>
                 <h4>Territorial Claims Formally Published</h4>
-                <p>The Ministry of Foreign Affairs has published the official register of Labradoian territorial claims, including Bir Tawil, Marie Byrd Land, and voluntarily ceded private parcels worldwide.</p>
+                <p>The Ministry of Foreign Affairs has published the official register of Labradoian territorial claims, including Marie Byrd Land and voluntarily ceded private parcels worldwide.</p>
             </div>
             <div class="news-card reveal">
                 <div class="date">1 April 2026</div>
@@ -216,7 +229,7 @@
             <div class="term-card reveal">
                 <div class="role">Ministry of Science, Technology &amp; Innovation</div>
                 <h4>Minister of Technology Term — 10 Years</h4>
-                <p>In recognition of the long-term nature of technological and innovation policy, the Minister of Science, Technology &amp; Innovation serves an extended term of ten (10) years. Current Minister: <strong>adam calcroft</strong>.</p>
+                <p>In recognition of the long-term nature of technological and innovation policy, the Minister of Science, Technology &amp; Innovation serves an extended term of ten (10) years. Current Minister: <strong>Adam Calcroft</strong>.</p>
             </div>
             <div class="term-card reveal">
                 <div class="role">Ministry of Internal Affairs &amp; Citizenship</div>
@@ -224,6 +237,27 @@
                 <p>The Deputy Minister of Internal Affairs assists with governance, policy development, and citizenship matters. Current Deputy Minister: <strong>Haydn Fell</strong>.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- ===== DONATE ===== -->
+<section class="section section-alt reveal">
+    <div class="section-inner" style="text-align:center;max-width:680px;">
+        <div class="section-label">Support the Republic</div>
+        <h2>Donate to Labradoria</h2>
+        <hr class="gold-rule">
+        <p style="line-height:1.85;color:#444;margin-bottom:24px;">Labradoria is a community-funded nation. Donations go directly to the costs of running the state — document production, digital infrastructure, and diplomatic outreach. We accept Bitcoin and Ethereum.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;text-align:left;margin-bottom:20px;">
+            <div style="background:#002147;padding:20px 22px;border-left:5px solid #c8a84b;">
+                <div style="color:#c8a84b;font-weight:700;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">&#8383; Bitcoin (BTC)</div>
+                <code style="font-size:0.76rem;color:#dde8f0;word-break:break-all;font-family:monospace;">bc1q3p84062u9glz3awp2te9kl2lffg50e06acte37</code>
+            </div>
+            <div style="background:#002147;padding:20px 22px;border-left:5px solid #c8a84b;">
+                <div style="color:#c8a84b;font-weight:700;font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">&#9830; Ethereum (ETH)</div>
+                <code style="font-size:0.76rem;color:#dde8f0;word-break:break-all;font-family:monospace;">0x152901b8651d33e895D05f4640Bd37A958F6633d</code>
+            </div>
+        </div>
+        <a href="contact.html#donate" style="font-size:0.88rem;color:#002147;font-weight:700;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Full donation information &amp; copy addresses &#8594;</a>
     </div>
 </section>
 
@@ -246,14 +280,18 @@
                     <li><a href="constitution.html">Constitution</a></li>
                     <li><a href="laws.html">Laws &amp; Values</a></li>
                     <li><a href="territories.html">Territories</a></li>
+                    <li><a href="founders.html">Founding Fathers</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Services</h4>
                 <ul>
-                    <li><a href="contact.html">Apply for Citizenship</a></li>
+                    <li><a href="contact.html">Apply for Citizenship (£5)</a></li>
+                    <li><a href="passport.html">Passport (£100)</a></li>
+                    <li><a href="identity-card.html">Identity Card (£30)</a></li>
                     <li><a href="contact.html">Cede Your Land</a></li>
                     <li><a href="contact.html">Diplomatic Contact</a></li>
+                    <li><a href="foreign.html">Foreign Nations</a></li>
                 </ul>
             </div>
             <div class="footer-col">

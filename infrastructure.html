@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Infrastructure - Republic of Labradoria</title>
     <link rel="stylesheet" href="style.css">
+    <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'fr,de,ru,zh-CN',autoDisplay:false},'google_translate_element');}</script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
@@ -16,8 +18,16 @@
                 <span>Republic of <em>Labradoria</em></span>
             </a>
         </div>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="zh-CN" onclick="setLanguage('zh-CN')">中文</button>
+        </div>
     </div>
 </header>
+<div id="google_translate_element" style="display:none;"></div>
 
 <nav>
     <ul>
@@ -29,6 +39,9 @@
         <li><a href="divisions.html">Divisions</a></li>
         <li><a href="territories.html">Territories</a></li>
         <li><a href="laws.html">Laws</a></li>
+        <li><a href="passport.html">Passport</a></li>
+        <li><a href="identity-card.html">ID Card</a></li>
+        <li><a href="flag.html">Flag</a></li>
         <li><a href="press.html">Press Office</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -57,15 +70,15 @@
             <div style="background:#f8f9fa;border-left:4px solid #DAA520;padding:20px;margin-bottom:25px;border-radius:3px;">
                 <h3 style="color:#002147;margin-top:0;">Email Infrastructure</h3>
                 <p><strong>Primary Contact:</strong> office@labradoria.org</p>
-                <p><strong>Contact Routing:</strong> Formspree integration connecting to official correspondence system</p>
-                <p><strong>Department Routing:</strong> Automated sorting to appropriate ministries (Foreign Affairs, Internal Affairs, Technology, Media, Research)</p>
-                <p><strong>Response SLA:</strong> 7-14 business days for formal inquiries</p>
+                <p><strong>Contact Routing:</strong> Direct email routing to official correspondence — no third-party form services used</p>
+                <p><strong>Department Routing:</strong> Enquiries routed to appropriate ministries (Foreign Affairs, Internal Affairs, Technology, Media, Research)</p>
+                <p><strong>Response SLA:</strong> 7–14 business days for formal enquiries</p>
             </div>
 
             <div style="background:#f8f9fa;border-left:4px solid #DAA520;padding:20px;margin-bottom:25px;border-radius:3px;">
                 <h3 style="color:#002147;margin-top:0;">Constitutional Framework System</h3>
-                <p><strong>Document Status:</strong> XXII Articles ratified, comprehensive governance documentation</p>
-                <p><strong>Automatic Enforcement:</strong> Article XXVI "Cabinet Safeguards" algorithmic enforcement during decision-making</p>
+                <p><strong>Document Status:</strong> XXIII Articles ratified, comprehensive governance documentation</p>
+                <p><strong>Automatic Enforcement:</strong> Article XXI "Cabinet Safeguards" provisions applied during all governance decisions</p>
                 <p><strong>Amendment Tracking:</strong> Constitutional amendments recorded with Cabinet vote tallies and dates</p>
                 <p><strong>Citizen Affirmation:</strong> Constitutional acceptance required during citizenship application</p>
             </div>
@@ -81,11 +94,24 @@
         </section>
 
         <section style="margin-bottom:50px;">
+            <h2 style="color:#002147;border-bottom:3px solid #DAA520;padding-bottom:10px;margin-bottom:30px;">Physical Manufacturing</h2>
+
+            <div style="background:#f8f9fa;border-left:4px solid #DAA520;padding:20px;margin-bottom:25px;border-radius:3px;">
+                <h3 style="color:#002147;margin-top:0;">3D Printing Capability</h3>
+                <p><strong>Status:</strong> Operational</p>
+                <p><strong>Purpose:</strong> Physical production of official Republic assets including identity documents, seals, insignia, and physical artefacts of state</p>
+                <p><strong>Managed by:</strong> Minister of Science, Technology &amp; Innovation (Adam)</p>
+                <p><strong>Printing Partner:</strong> <a href="https://www.tanda-3dprinting.co.uk/" target="_blank" rel="noopener" style="color:#002147;">Tanda 3D Printing</a></p>
+                <p><strong>Applications:</strong> Prototyping of document components, production of official seals, physical Republic assets, and citizen-facing physical materials</p>
+            </div>
+        </section>
+
+        <section style="margin-bottom:50px;">
             <h2 style="color:#002147;border-bottom:3px solid #DAA520;padding-bottom:10px;margin-bottom:30px;">Technology Division Systems</h2>
             
             <div style="background:#f8f9fa;border-left:4px solid #DAA520;padding:20px;margin-bottom:25px;border-radius:3px;">
                 <h3 style="color:#002147;margin-top:0;">CookieHost Infrastructure</h3>
-                <p><strong>Operator:</strong> Freddie Sparrow, Minister of Science, Technology & Innovation</p>
+                <p><strong>Operator:</strong> Adam, Minister of Science, Technology &amp; Innovation</p>
                 <p><strong>Services:</strong> Cloud hosting, distributed systems, infrastructure management</p>
                 <p><strong>Coverage:</strong> Public IPv4 addressing, /46 IPv6 allocation, global connectivity</p>
                 <p><strong>Status:</strong> Production-grade hosting platform serving multiple organizations</p>
@@ -157,6 +183,7 @@
             <p style="color:#555;margin:10px 0;">Republic of Labradoria</p>
             <p style="color:#999;font-size:0.9rem;margin:5px 0;">Email: office@labradoria.org</p>
             <p style="color:#999;font-size:0.85rem;">Established 2024. Governed under the Constitution of Labradoria.</p>
+            <p style="color:#999;font-size:0.85rem;margin-top:8px;"><a href="founders.html" style="color:#c8a84b;">Founding Fathers</a></p>
         </div>
     </footer>
 

@@ -179,7 +179,7 @@ footer { background: #001428; color: #8899aa; padding: 48px 24px 28px; border-to
     border-radius: 0;
     cursor: pointer;
     font-weight: 600;
-    color: #002147;
+    color: inherit;
     border-bottom: 2px dashed #DAA520;
     position: relative;
     display: inline-block;
@@ -282,6 +282,36 @@ footer { background: #001428; color: #8899aa; padding: 48px 24px 28px; border-to
 .name-btn-founders:hover {
     background: var(--navy);
     color: var(--gold);
+}
+
+/* ---- LANGUAGE SWITCHER ---- */
+.lang-switcher {
+    display: none; /* auto-detect by IP runs silently; show buttons by removing this line */
+    align-items: center;
+    gap: 4px;
+}
+.lang-btn {
+    background: transparent;
+    border: 1px solid rgba(200,168,75,0.4);
+    color: rgba(255,255,255,0.75);
+    padding: 4px 9px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    font-family: inherit;
+    line-height: 1;
+}
+.lang-btn:hover, .lang-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+}
+@media (max-width: 600px) {
+    .lang-btn { padding: 3px 6px; font-size: 0.62rem; }
 }
 
 /* ---- BACK TO TOP ---- */

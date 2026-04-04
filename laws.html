@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laws &amp; Values of the Republic of Labradoria</title>
     <link rel="stylesheet" href="style.css">
+    <script>if(localStorage.getItem('labradoria-alert-dismissed')==='1'){document.head.insertAdjacentHTML('beforeend','<style>#alert-banner{display:none!important}<\/style>');}</script>
+    <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'fr,de,ru,zh-CN',autoDisplay:false},'google_translate_element');}</script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
 <!-- Small fixed top-left notice tab -->
-<a id="notice-tab" href="announcement.html" target="_blank" rel="noopener"
-   onclick="localStorage.setItem('labradoria-alert-dismissed','1'); document.getElementById('alert-banner').style.display='none';">
+<a id="notice-tab" href="announcement.html" target="_blank" rel="noopener">
     ! Govt. Notice
 </a>
 
@@ -34,8 +36,16 @@
                 <span>Republic of <em>Labradoria</em></span>
             </a>
         </div>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="zh-CN" onclick="setLanguage('zh-CN')">中文</button>
+        </div>
     </div>
 </header>
+<div id="google_translate_element" style="display:none;"></div>
 
 <!-- ===== NAV ===== -->
 <nav>
@@ -48,8 +58,11 @@
         <li><a href="divisions.html">Divisions</a></li>
         <li><a href="laws.html" class="active">Laws &amp; Values</a></li>
         <li><a href="territories.html">Territories</a></li>
-        <li><a href="contact.html">Citizenship</a></li>
+        <li><a href="passport.html">Passport</a></li>
+        <li><a href="identity-card.html">ID Card</a></li>
+        <li><a href="flag.html">Flag</a></li>
         <li><a href="press.html">Press Office</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
@@ -64,6 +77,17 @@
     <div class="section-inner" style="max-width:800px;">
 
         <div class="const-article">
+            <h2>Governance Framework</h2>
+            <hr class="gold-rule">
+            <p>The Republic of Labradoria operates on three distinct, complementary levels:</p>
+            <ul style="line-height:1.85;color:#444;padding-left:22px;margin-bottom:20px;">
+                <li><strong>Constitution</strong> — the supreme law, setting out rights, the structure of government, and limits on power. It cannot be overridden.</li>
+                <li><strong>Laws</strong> — clear, enforceable rules that apply equally to all citizens. They are civil in character and do not require any particular faith or belief.</li>
+                <li><strong>Values</strong> — guiding principles drawn from our Christian heritage, including compassion, fairness, forgiveness, and solidarity. These shape the spirit of our policies and the culture of our community, but they are not imposed as law and do not restrict the freedom of conscience of any citizen.</li>
+            </ul>
+        </div>
+
+        <div class="const-article">
             <h2>Core Values of Labradoria</h2>
             <hr class="gold-rule">
             <p>The Republic of Labradoria is founded upon the following core values, shared by all citizens and reflected in all laws and policies:</p>
@@ -75,7 +99,7 @@
 
             <div style="margin-top:30px;">
                 <h3>2. Faith &amp; Dignity</h3>
-                <p>Labradoria is a Christian nation, guided by the principles of Christian values and teachings. Every human person possesses inherent, inalienable dignity that must be respected, protected, and promoted. No person shall be subjected to degradation, discrimination, or denial of rights.</p>
+                <p>Labradoria's identity and values are shaped by the Christian tradition. Principles such as compassion, fairness, forgiveness, and care for the vulnerable inform government policy and public life — as guiding values, not as law. The laws of the Republic are civil, universal, and enforceable equally upon citizens of all faiths and none. Every human person possesses inherent, inalienable dignity that must be respected, protected, and promoted. No person shall be subjected to degradation, discrimination, or denial of rights.</p>
             </div>
 
             <div style="margin-top:30px;">
@@ -116,47 +140,79 @@
 
             <h3>Law I: The Prohibition on Warfare &amp; Weapons</h3>
             <p>The Republic of Labradoria shall never develop, acquire, stockpile, or deploy military weapons, explosives, or instruments of warfare. All international disputes shall be resolved through diplomacy, negotiation, and lawful international mechanisms. This law is permanent and may never be repealed.</p>
+            <p><em>Enforcement: Any officer or citizen who participates in or facilitates a breach of this law acts in fundamental violation of the Constitution. Such conduct constitutes grounds for immediate citizenship revocation under Article X and removal from office under Article XXI. No citizen may invoke any instruction from the Republic as justification for acquiring or using weapons.</em></p>
 
             <h3>Law II: Protection of Individual Rights</h3>
             <p>No citizen may be subjected to slavery, servitude, torture, degrading treatment, or arbitrary deprivation of their fundamental rights. Every citizen has the right to life, liberty, privacy, freedom of thought and conscience, and due process of law. These rights are inalienable.</p>
+            <p><em>Enforcement: Any act by the Republic or its officers that violates rights under this Law is void and of no legal effect. The affected citizen may petition the President for remedy. Any officer responsible may be removed from office under Article XXI.</em></p>
 
             <h3>Law III: Equal Treatment Before the Law</h3>
             <p>All citizens shall be treated equally by the law and by government officials. Discrimination on the basis of race, nationality, gender, religion, disability, or any immutable characteristic is strictly prohibited. Any law or policy that violates this principle is void.</p>
+            <p><em>Enforcement: Any discriminatory law, policy, or act of the Republic is void. Government officials responsible for discriminatory conduct are subject to removal from office. Citizens who discriminate against other citizens shall receive a formal written warning; repeated or serious discrimination is grounds for citizenship revocation.</em></p>
 
             <h3>Law IV: Freedom of Expression &amp; Conscience</h3>
             <p>All citizens have the right to express their views, publish information, and practice their faith or philosophy, subject only to the restriction that such expression may not directly incite violence or harm others. The government shall not censor, suppress, or punish lawful speech.</p>
+            <p><em>Enforcement: Any act of censorship or punishment of lawful speech by an officer of the Republic is void and constitutes grounds for removal from office and citizenship revocation under Article X.</em></p>
 
             <h3>Law V: Transparency &amp; Right to Information</h3>
             <p>All government decisions, laws, constitutional amendments, and policy papers shall be published and made accessible to citizens. Citizens have the right to request information about government operations, subject only to narrow exceptions for privacy and security. Secrecy is the enemy of accountability.</p>
+            <p><em>Enforcement: Failure by a government officer to publish required information or respond to a lawful information request constitutes official misconduct and grounds for removal from office under Article XXI.</em></p>
 
             <h3>Law VI: Citizen Participation &amp; Voting</h3>
-            <p>Citizens have the right to propose amendments to this legal code, to petition the government, and to participate in votes on major constitutional matters. The government shall regularly consult with citizens and shall consider their input in good faith.</p>
+            <p>Citizens have the right to propose amendments to this legal code, to petition the government, and to participate in votes on major constitutional matters. The government shall consult citizens on all major constitutional changes and shall consider their input in good faith before any such change takes effect.</p>
+            <p><em>Enforcement: Failure to consult citizens on matters requiring consultation is a breach of governmental obligations. Citizens may petition the President to compel compliance. Deliberate exclusion of citizens from a required vote renders the outcome of that vote invalid.</em></p>
 
             <h3>Law VII: Protection of Environment &amp; Sustainability</h3>
             <p>The Republic shall operate in an environmentally responsible manner. All government operations shall aim to achieve carbon neutrality by 2030. No activity by the Republic shall deliberately degrade or destroy the natural environment. Scientific evidence shall guide environmental policy.</p>
+            <p><em>Enforcement: Any deliberate environmental degradation by the Republic or its officers constitutes a breach of this Law. Officers responsible are subject to removal from office and citizenship revocation.</em></p>
 
             <h3>Law VIII: Digital Rights &amp; Data Protection</h3>
             <p>All citizens have the right to privacy of their personal data, digital communications, and online activities. The government shall not surveil, track, or monitor citizens without lawful authority and proper oversight. Data collected by the government shall be held securely, never sold, and deleted upon request.</p>
+            <p><em>Enforcement: Unlawful surveillance or data misuse by any organ of the Republic is void. Officers responsible are subject to removal from office and citizenship revocation. Where applicable, such conduct shall also be reported to the competent authorities of the relevant host nation.</em></p>
+
+            <h3>Law VIII(a): Digital Self-Defence — Protective Measures Only</h3>
+            <p>Citizens of the Republic may take reasonable protective and defensive measures to secure their own digital systems, communications, and data. <strong>Digital self-defence is strictly limited to protective action only.</strong> No citizen may, under the authority or name of the Republic, conduct any offensive digital operation — including but not limited to: unauthorised access to third-party systems, data exfiltration, denial-of-service attacks, malware deployment, or any other active offensive cyber act against any person, organisation, or government.</p>
+            <p>The Republic of Labradoria does not authorise, condone, or endorse any offensive cyber activity by any citizen, officer, or body acting in the Republic's name. Any citizen who engages in offensive digital conduct does so entirely at their own risk and entirely outside the authority of the Republic. All applicable host-nation laws — including the Computer Misuse Act 1990 (UK), the Loi Godfrain n°88-19 (France), and equivalent legislation in all other jurisdictions — take absolute precedence and must be observed at all times.</p>
+            <p><em>Enforcement: Violation of this Law constitutes a serious breach. The citizen is subject to immediate citizenship revocation and permanent ban from re-application. The Republic shall cooperate fully with any host-nation law enforcement investigation arising from such conduct. The Republic accepts no legal liability for the actions of citizens who breach this Law.</em></p>
 
             <h3>Law IX: Prohibition on Corruption &amp; Abuse of Power</h3>
-            <p>All government officials are prohibited from using their position for private enrichment, from accepting bribes, or from abusing their authority. Corruption is grounds for removal from office and citizenship revocation. The government exists to serve the people, not officials' private interests.</p>
+            <p>All government officials are prohibited from using their position for private enrichment, from accepting bribes, or from abusing their authority. The government exists to serve the people, not officials' private interests.</p>
+            <p><em>Enforcement: Any officer found to have committed corruption or abuse of power shall be immediately removed from office and shall have their citizenship revoked under Article X. Such conduct shall additionally be reported to the authorities of the applicable host nation where it may constitute a criminal offence under domestic law.</em></p>
 
             <h3>Law X: Community Standards &amp; Civility</h3>
-            <p>While free expression is protected, citizens are expected to conduct themselves with respect and civility toward one another. Harassment, bullying, intimidation, or abuse directed at other citizens is contrary to the values of Labradoria. Such conduct may result in citizenship revocation in egregious cases.</p>
+            <p>While free expression is protected, citizens are expected to conduct themselves with respect and civility toward one another. Harassment, bullying, intimidation, or abuse directed at other citizens is contrary to the values of Labradoria.</p>
+            <p><em>Enforcement: A first breach of this Law shall result in a formal written warning issued by the Minister of All Affairs. A second breach, or a single act of sufficient severity, constitutes grounds for citizenship revocation requiring the agreement of the President and a majority of the Cabinet. There is no warning requirement where the conduct is severe enough to constitute a single-incident ground under Article X(3)(f) of the Constitution.</em></p>
+
+            <h3>Law XI: Taxation</h3>
+            <p>The Republic of Labradoria levies no tax upon its citizens at the present time, as it does not yet administer any recognised territory over which it exercises practical jurisdiction. No Labradoian tax is due or collectible. Should taxation be introduced in the future — including within voluntarily ceded territories in the United Kingdom or France — it shall be a flat rate of <strong>15% applied equally to all citizens</strong>, with full priority given to host-nation tax obligations at all times. Citizens must comply with all host-nation tax laws regardless of Labradoian citizenship. Any future tax requires a constitutional amendment and a citizens' vote with at least 60 days' public notice.</p>
+            <p><em>Enforcement: Failure by a citizen to comply with host-nation tax law is not excused by Labradoian citizenship and constitutes a potential ground for citizenship revocation under Article X(3)(a) (acting against the interests and reputation of the Republic). The Republic will never assist any citizen in avoiding or evading host-nation tax obligations.</em></p>
+
+            <h3>Law XII: Compliance with Host-Nation Law — Absolute Obligation</h3>
+            <p>No citizen of the Republic shall physically assert, enforce, or attempt to enforce any law or authority of Labradoria within a host nation. This includes any form of checkpoint, passport control, barrier, or physical exercise of jurisdiction. Citizens must at all times comply fully with the laws, instructions, and lawful orders of host-nation authorities. The Republic will never authorise any citizen to act in a way that conflicts with host-nation law enforcement or that places the citizen or others in physical danger in the name of Labradoian sovereignty. The safety of citizens takes absolute precedence over any assertion of Labradoian authority.</p>
+            <p><em>Enforcement: Any citizen who physically attempts to enforce Labradoian authority within a host nation acts entirely outside the authority of the Republic, in breach of this Constitution, and at their own personal legal risk. Such conduct constitutes grounds for immediate citizenship revocation. The Republic bears no legal or moral responsibility for any consequences arising from such conduct.</em></p>
 
         </div>
 
-        <div class="const-article" style="background:#f5f5f5;padding:20px;border-left:4px solid #DAA520;margin-top:40px;">
+        <div class="const-article" style="background:#002147;color:white;padding:24px 28px;border-left:6px solid #c8a84b;margin-top:40px;">
+            <h3 style="color:#c8a84b;margin-bottom:12px;">Binding Effect &amp; Enforcement — General Note</h3>
+            <p style="color:#dde8f0;line-height:1.85;font-size:0.93rem;">These Laws are binding upon all citizens and organs of the Republic with immediate effect. No person may contract out of, waive, or circumvent any of these Laws. Any purported agreement to do so is void.</p>
+            <p style="color:#dde8f0;line-height:1.85;font-size:0.93rem;margin-top:10px;">Enforcement within the Republic operates through formal warnings, suspension of participation rights, and citizenship revocation as set out in Article X of the Constitution. Enforcement is <strong style="color:white;">never physical</strong> and is never a basis for conflicting with host-nation law or authorities.</p>
+            <p style="color:#dde8f0;line-height:1.85;font-size:0.93rem;margin-top:10px;">Where a violation also constitutes a criminal offence under the domestic law of a host nation, the Republic shall report the matter to the relevant authorities of that nation.</p>
+        </div>
+
+        <div class="const-article" style="background:#f5f5f5;padding:20px;border-left:4px solid #DAA520;margin-top:24px;">
             <h3>Constitutional Cross-References</h3>
             <p>For the full legal framework, see the <a href="constitution.html">Constitution of the Republic of Labradoria</a>. The Laws outlined above derive from and are subject to the Constitution, which is the supreme law.</p>
             <ul style="list-style-type:none;margin-top:15px;">
                 <li><strong>Article I:</strong> Foundational Principles</li>
                 <li><strong>Article III:</strong> Peace &amp; Non-Aggression</li>
                 <li><strong>Article VIII:</strong> Rights of Citizens</li>
+                <li><strong>Article X:</strong> Citizenship — Grant, Obligations &amp; Revocation</li>
                 <li><strong>Article XI:</strong> Technology, Digital Rights &amp; Innovation</li>
                 <li><strong>Article XV:</strong> Environmental Responsibility</li>
                 <li><strong>Article XIX:</strong> Press Freedom &amp; Transparency</li>
                 <li><strong>Article XXI:</strong> Cabinet Safeguards Against Governance Collapse</li>
+                <li><strong>Article XXII:</strong> Host-Nation Law &amp; Limits of Enforcement</li>
             </ul>
         </div>
 
@@ -188,6 +244,7 @@
                 <ul>
                     <li><a href="contact.html">Apply for Citizenship</a></li>
                     <li><a href="territories.html">Territories</a></li>
+                    <li><a href="founders.html">Founding Fathers</a></li>
                 </ul>
             </div>
             <div class="footer-col">

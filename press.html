@@ -11,6 +11,56 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#002147">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .press-contact-bar {
+            background: #002147;
+            color: white;
+            padding: 18px 0;
+            text-align: center;
+            font-size: 0.88rem;
+        }
+        .press-contact-bar a { color: #c8a84b; font-weight: 700; }
+        .release-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+        .tag-president { background:#002147; color:#c8a84b; }
+        .tag-foreign   { background:#1a4d24; color:#a8e0b0; }
+        .tag-internal  { background:#4d3b00; color:#f0d080; }
+        .tag-vote      { background:#c8a84b; color:#002147; }
+        .press-section-nav {
+            display: flex;
+            gap: 24px;
+            border-bottom: 2px solid #e0e0d8;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+        .press-section-nav a {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            padding-bottom: 10px;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+        .press-section-nav a:hover,
+        .press-section-nav a.pnav-active {
+            color: #002147;
+            border-bottom-color: #c8a84b;
+        }
+    </style>
+    <script src="config.js"></script>
+    <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'fr,de,ru,zh-CN',autoDisplay:false},'google_translate_element');}</script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
@@ -22,8 +72,16 @@
                 <span>Republic of <em>Labradoria</em></span>
             </a>
         </div>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="zh-CN" onclick="setLanguage('zh-CN')">中文</button>
+        </div>
     </div>
 </header>
+<div id="google_translate_element" style="display:none;"></div>
 
 <nav>
     <ul>
@@ -31,74 +89,162 @@
         <li><a href="president.html">President</a></li>
         <li><a href="cabinet.html">Cabinet</a></li>
         <li><a href="constitution.html">Constitution</a></li>
-        <li><a href="infrastructure.html">Infrastructure</a></li>
-        <li><a href="divisions.html">Divisions</a></li>
+        <li><a href="laws.html">Laws</a></li>
         <li><a href="territories.html">Territories</a></li>
+        <li><a href="passport.html">Passport</a></li>
+        <li><a href="identity-card.html">ID Card</a></li>
+        <li><a href="flag.html">Flag</a></li>
         <li><a href="press.html" class="active">Press Office</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
 
+<div class="press-contact-bar">
+    Media enquiries: <a href="mailto:office@labradoria.org">office@labradoria.org</a>
+    &nbsp;&nbsp;·&nbsp;&nbsp; Subject: <em>Press Enquiry — [Your Outlet]</em>
+    &nbsp;&nbsp;·&nbsp;&nbsp; Response within 7–14 business days
+</div>
+
 <section class="hero" style="padding:50px 24px;">
-    <div class="section-label" style="margin-bottom:10px;">Press Office</div>
-    <h1 style="font-size:2rem;">Official Press &amp; Announcements</h1>
-    <p>All official statements, releases, and declarations of the Republic of Labradoria</p>
+    <div class="section-label" style="margin-bottom:10px;">Official Communications</div>
+    <h1 style="font-size:2rem;">Press Office</h1>
+    <p>All official press releases, presidential statements, and declarations of the Republic of Labradoria</p>
 </section>
 
-<!-- CAPABILITIES SECTION -->
-<section class="section section-alt reveal">
-    <div class="section-inner">
-        <div class="section-label">Republic Capabilities</div>
-        <h2>Infrastructure &amp; Assets</h2>
-        <hr class="gold-rule">
-        <div class="pillars">
-            <div class="pillar reveal">
-                <h3>Civilian Drone</h3>
-                <p>The Republic of Labradoria operates a civilian drone for survey, observation, and administrative purposes. It is operated strictly for peaceful and governmental functions in compliance with applicable aviation law of any host nation in which it is flown.</p>
-            </div>
-            <div class="pillar reveal">
-                <h3>Server Infrastructure</h3>
-                <p>Labradoria maintains its own server infrastructure to support the digital operations of the Republic, including official communications, the territorial register, and government web services.</p>
-            </div>
-            <div class="pillar reveal">
-                <h3>Hosting Partnership — CookieHost</h3>
-                <p>Citizens and allies of the Republic can access <strong>discounted web hosting and digital services</strong> through our official partner, <a href="https://cookiehost.uk" target="_blank" rel="noopener">CookieHost.uk</a>. Contact us for your discount code.</p>
+<!-- VOTE CARD — shown only when votingFormUrl is set in config.js -->
+<div id="vote-banner" style="display:none;">
+    <div style="background:#c8a84b;padding:14px 24px;text-align:center;">
+        <strong style="color:#002147;">Citizens' Vote is now open.</strong>
+        <span style="color:#002147;font-size:0.9rem;margin-left:10px;">Voting closes 15 May 2026.</span>
+        <a id="vote-banner-link" href="#" style="margin-left:16px;background:#002147;color:#c8a84b;padding:6px 16px;font-size:0.82rem;font-weight:700;text-decoration:none;">Vote Now &#8594;</a>
+    </div>
+</div>
+
+<!-- ALL RELEASES -->
+<section class="section reveal">
+    <div class="section-inner" style="max-width:900px;">
+        <div class="press-section-nav">
+            <a href="#releases" class="pnav-active">All Releases</a>
+            <a href="#presidential">Presidential</a>
+            <a href="#foreign-affairs">Foreign Affairs</a>
+            <a href="#media">Media Contact</a>
+        </div>
+
+        <div id="releases">
+            <div class="section-label">Latest</div>
+            <h2>Press Releases &amp; Announcements</h2>
+            <hr class="gold-rule">
+
+            <div class="news-grid" style="margin-top:28px;">
+
+                <!-- VOTE CARD — injected by JS when live -->
+                <div id="press-vote-card" style="display:none;" class="news-card">
+                    <span class="release-tag tag-vote">Citizens' Vote</span>
+                    <div class="date">4 April 2026 — Ministry of Internal Affairs</div>
+                    <h4>Citizens' Priorities Vote — Now Open</h4>
+                    <p>The Republic of Labradoria has opened its first citizens' priorities vote. Citizens are invited to vote on which issues the Republic should prioritise in the coming term. Voting closes <strong>15 May 2026</strong>. All responses are recorded and stored securely by the Minister of Science, Technology &amp; Innovation.</p>
+                    <p style="margin-top:8px;font-size:0.82rem;color:#666;"><strong>On the ballot:</strong> Environmental Policy · Fairness of State · Passport Programme · Identity Card Programme</p>
+                    <a id="press-vote-link" href="#" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Cast your vote &#8594;</a>
+                </div>
+
+                <div class="news-card reveal">
+                    <span class="release-tag tag-president">President's Office</span>
+                    <div class="date">3 April 2026</div>
+                    <h4>Presidential Declaration: Recognition of States</h4>
+                    <p>President Freddie Sparrow formally and officially recognises all member states of the United Nations, plus the Free Republic of Verdis, the Principality of Sealand, and the Republic of Ironland as sovereign nations. The Republic invites all recognised states to engage in diplomatic dialogue.</p>
+                    <a href="announcement.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Read full declaration &#8594;</a>
+                </div>
+
+                <div class="news-card reveal">
+                    <span class="release-tag tag-foreign">Ministry of Foreign Affairs</span>
+                    <div class="date">2 April 2026</div>
+                    <h4>Territorial Claims Formally Published</h4>
+                    <p>The Ministry of Foreign Affairs has published the official register of Labradoian territorial claims, including Marie Byrd Land, Antarctica, and voluntarily ceded private parcels within France and the United Kingdom.</p>
+                    <a href="territories.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">View territorial register &#8594;</a>
+                </div>
+
+                <div class="news-card reveal">
+                    <span class="release-tag tag-foreign">Ministry of Foreign Affairs</span>
+                    <div class="date">1 April 2026</div>
+                    <h4>Land Cession Programme Open to All Nations</h4>
+                    <p>The Republic now accepts voluntary Instruments of Cession for privately owned land in any country, subject to jurisdictional requirements. Western liberal democracies: cessions accepted directly. Eastern European, Asian, African, and Middle Eastern jurisdictions require prior host-nation government approval.</p>
+                    <a href="territories.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Cession rules &#8594;</a>
+                </div>
+
+                <div class="news-card reveal">
+                    <span class="release-tag tag-internal">Constitutional Assembly</span>
+                    <div class="date">1 April 2026</div>
+                    <h4>Constitution of the Republic Ratified</h4>
+                    <p>The founding Constitution of the Republic of Labradoria — comprising 23 articles — has been ratified, enshrining the rights of all citizens, the peaceful character of the Republic, the dispute resolution framework, term limits, and the structure of national government.</p>
+                    <a href="constitution.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Read the Constitution &#8594;</a>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
 
-<!-- PRESS RELEASES -->
-<section class="section reveal">
-    <div class="section-inner">
-        <div class="section-label">Press Releases</div>
-        <h2>All Announcements</h2>
+<!-- PRESIDENTIAL STATEMENTS -->
+<section class="section section-alt reveal" id="presidential">
+    <div class="section-inner" style="max-width:900px;">
+        <div class="section-label">Presidential Office</div>
+        <h2>Presidential Statements</h2>
         <hr class="gold-rule">
-        <div class="news-grid">
-            <div class="news-card reveal">
-                <div class="date">3 April 2026 — President's Office</div>
-                <h4>Presidential Declaration: Recognition of States</h4>
-                <p>President Freddie Sparrow formally and officially recognises all UN member states, plus the Free Republic of Verdis, the Principality of Sealand, and the Republic of Ironland as sovereign nations.</p>
-                <a href="announcement.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Read full announcement &#8594;</a>
+        <div style="background:#002147;color:white;padding:32px 36px;border-left:6px solid #c8a84b;margin-top:24px;">
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#c8a84b;margin-bottom:14px;">Statement — 3 April 2026 — President Freddie Sparrow</div>
+            <p style="color:#dde8f0;line-height:1.9;font-style:italic;font-size:0.95rem;margin-bottom:14px;">The Republic of Labradoria is, and shall always remain, a peaceful and unarmed nation. We recognise the dignity of every human person and the sovereignty of every nation. We invite the world to see us not as a novelty but as a sincere effort to build a community guided by law, fairness, and shared values.</p>
+            <p style="color:#dde8f0;line-height:1.9;font-style:italic;font-size:0.95rem;margin-bottom:16px;">We hold no weapons. We threaten no one. We ask only to exist alongside all nations in peace, and to be recognised for what we are: a genuine, law-abiding, and principled sovereign community.</p>
+            <span style="color:#c8a84b;font-weight:700;font-size:0.88rem;">Freddie Sparrow &nbsp;·&nbsp; President, Republic of Labradoria</span>
+        </div>
+        <div style="margin-top:20px;text-align:right;">
+            <a href="announcement.html" style="font-size:0.85rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Full presidential declaration &#8594;</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOREIGN AFFAIRS -->
+<section class="section reveal" id="foreign-affairs">
+    <div class="section-inner" style="max-width:900px;">
+        <div class="section-label">Diplomatic</div>
+        <h2>Foreign Affairs &amp; Diplomacy</h2>
+        <hr class="gold-rule">
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;margin-top:24px;">
+            <div style="border:1px solid #e0e0d8;border-top:4px solid #002147;padding:22px 18px;">
+                <h4 style="color:#002147;margin-bottom:8px;">Recognised States</h4>
+                <p style="font-size:0.85rem;color:#555;line-height:1.65;">Labradoria formally recognises all UN member states, the Free Republic of Verdis, the Principality of Sealand, and the Republic of Ironland.</p>
             </div>
-            <div class="news-card reveal">
-                <div class="date">2 April 2026 — Ministry of Foreign Affairs</div>
-                <h4>Territorial Claims Formally Published</h4>
-                <p>The Ministry of Foreign Affairs has published the official register of Labradoian territorial claims, including Bir Tawil, Marie Byrd Land, and voluntarily ceded private parcels worldwide.</p>
-                <a href="territories.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">View territorial register &#8594;</a>
+            <div style="border:1px solid #e0e0d8;border-top:4px solid #002147;padding:22px 18px;">
+                <h4 style="color:#002147;margin-bottom:8px;">Recognition Sought</h4>
+                <p style="font-size:0.85rem;color:#555;line-height:1.65;">The Republic is actively pursuing formal recognition from the international community through lawful diplomatic channels.</p>
             </div>
-            <div class="news-card reveal">
-                <div class="date">1 April 2026 — Ministry of Foreign Affairs</div>
-                <h4>Cession Programme Open to All Nations</h4>
-                <p>The Republic now accepts voluntary Instruments of Cession for privately owned land in any country. Some private parcels, such as those in France and the United Kingdom, are held in confidence — only governments may request details of such parcels for privacy reasons.</p>
-            </div>
-            <div class="news-card reveal">
-                <div class="date">1 April 2026 — Constitutional Assembly</div>
-                <h4>Constitution Ratified</h4>
-                <p>The founding Constitution of the Republic of Labradoria has been ratified, enshrining the rights of all citizens, the dispute resolution framework, and the structure of the national government.</p>
-                <a href="constitution.html" style="display:inline-block;margin-top:12px;font-size:0.8rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Read the Constitution &#8594;</a>
+            <div style="border:1px solid #e0e0d8;border-top:4px solid #002147;padding:22px 18px;">
+                <h4 style="color:#002147;margin-bottom:8px;">Information for Governments</h4>
+                <p style="font-size:0.85rem;color:#555;line-height:1.65;">Foreign governments and diplomatic missions can find full information including our tax policy and legal compliance position on our dedicated page.</p>
+                <a href="foreign.html" style="font-size:0.82rem;font-weight:700;color:#002147;border-bottom:2px solid #c8a84b;padding-bottom:2px;">Foreign Nations page &#8594;</a>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- MEDIA CONTACT -->
+<section class="section section-alt reveal" id="media">
+    <div class="section-inner" style="max-width:700px;">
+        <div class="section-label">Media</div>
+        <h2>Media Contact &amp; Accreditation</h2>
+        <hr class="gold-rule">
+        <p style="line-height:1.85;color:#444;margin-bottom:20px;">Journalists and media organisations wishing to report on the Republic of Labradoria, request statements, or seek accreditation should contact the Press Office directly.</p>
+        <div style="background:#002147;padding:24px 28px;border-left:5px solid #c8a84b;margin-bottom:20px;">
+            <div style="color:#c8a84b;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Press Office Contact</div>
+            <p style="color:white;font-size:1rem;font-weight:700;margin-bottom:4px;">office@labradoria.org</p>
+            <p style="color:#aac0d0;font-size:0.85rem;">Subject line: <em>Press Enquiry — [Your Outlet]</em></p>
+            <p style="color:#aac0d0;font-size:0.85rem;margin-top:8px;">Response time: 7–14 business days for formal enquiries.</p>
+        </div>
+        <ul style="font-size:0.88rem;color:#555;line-height:1.85;padding-left:20px;">
+            <li>All press releases and official documents are published publicly on this page.</li>
+            <li>The Republic commits to accuracy, honesty, and plain language in all public communications.</li>
+            <li>Criticism of the Republic, when expressed lawfully and in good faith, is a protected right of all citizens and will never result in adverse action.</li>
+            <li>The Republic does not issue off-the-record briefings. All official positions are on the record.</li>
+        </ul>
     </div>
 </section>
 
@@ -110,7 +256,7 @@
         <div class="footer-cols">
             <div class="footer-col">
                 <h4>Republic of Labradoria</h4>
-                <p>A sovereign, peaceful, Catholic micronation established in 2024 and formally constituted in 2026.</p>
+                <p>A sovereign, peaceful micronation established in 2024 and formally constituted in 2026.</p>
             </div>
             <div class="footer-col">
                 <h4>Government</h4>
@@ -123,11 +269,12 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Services</h4>
+                <h4>Documents</h4>
                 <ul>
+                    <li><a href="passport.html">Passport</a></li>
+                    <li><a href="identity-card.html">Identity Card</a></li>
                     <li><a href="contact.html">Apply for Citizenship</a></li>
-                    <li><a href="contact.html">Cede Your Land</a></li>
-                    <li><a href="contact.html">Diplomatic Contact</a></li>
+                    <li><a href="foreign.html">Foreign Nations</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -135,7 +282,7 @@
                 <ul>
                     <li><a href="press.html">Press Office</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="index.html">labradoria.org</a></li>
+                    <li><a href="announcement.html">Presidential Declaration</a></li>
                 </ul>
             </div>
         </div>
@@ -147,5 +294,21 @@
 
 <button id="back-to-top" title="Back to top">&#8593;</button>
 <script src="script.js"></script>
+<script>
+// Show election card and banner only if voting URL is configured
+(function() {
+    var url = (typeof LABRADORIA_CONFIG !== 'undefined') && LABRADORIA_CONFIG.votingFormUrl;
+    if (url) {
+        var card = document.getElementById('press-vote-card');
+        var banner = document.getElementById('vote-banner');
+        var voteLink = document.getElementById('press-vote-link');
+        var bannerLink = document.getElementById('vote-banner-link');
+        if (card)   { card.style.display = 'block'; }
+        if (banner) { banner.style.display = 'block'; }
+        if (voteLink)  { voteLink.href = url; }
+        if (bannerLink){ bannerLink.href = url; }
+    }
+})();
+</script>
 </body>
 </html>

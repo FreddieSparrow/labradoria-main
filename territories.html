@@ -11,6 +11,8 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#002147">
     <link rel="stylesheet" href="style.css">
+    <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'fr,de,ru,zh-CN',autoDisplay:false},'google_translate_element');}</script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
@@ -22,8 +24,16 @@
                 <span>Republic of <em>Labradoria</em></span>
             </a>
         </div>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+            <button class="lang-btn" data-lang="de" onclick="setLanguage('de')">DE</button>
+            <button class="lang-btn" data-lang="ru" onclick="setLanguage('ru')">RU</button>
+            <button class="lang-btn" data-lang="zh-CN" onclick="setLanguage('zh-CN')">中文</button>
+        </div>
     </div>
 </header>
+<div id="google_translate_element" style="display:none;"></div>
 
 <nav>
     <ul>
@@ -34,6 +44,9 @@
         <li><a href="infrastructure.html">Infrastructure</a></li>
         <li><a href="divisions.html">Divisions</a></li>
         <li><a href="territories.html" class="active">Territories</a></li>
+        <li><a href="passport.html">Passport</a></li>
+        <li><a href="identity-card.html">ID Card</a></li>
+        <li><a href="flag.html">Flag</a></li>
         <li><a href="press.html">Press Office</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -51,7 +64,18 @@
         <h2>Declaration of Territorial Sovereignty</h2>
         <hr class="gold-rule">
         <p style="line-height:1.85;color:#444;margin-bottom:14px;">The Republic of Labradoria hereby formally asserts and declares sovereign interest over the territories enumerated herein, pursuant to applicable principles of international customary law, including the doctrine of <em>terra nullius</em> where applicable. This declaration is made with full legal intent and is recorded in the official Labradoian Territorial Register.</p>
-        <p style="line-height:1.85;color:#444;margin-bottom:14px;">The Republic of Labradoria recognises and affirms the inviolable right of private property ownership. Any individual or legal entity holding valid title to land under the domestic laws of <strong>any jurisdiction in the world</strong> may, through a voluntary Instrument of Cession, cede that property to the Republic.</p>
+        <p style="line-height:1.85;color:#444;margin-bottom:14px;">The Republic of Labradoria recognises and affirms the inviolable right of private property ownership. Any individual or legal entity holding valid title to land under the domestic laws of any jurisdiction in the world may, through a voluntary Instrument of Cession, cede that property to the Republic — subject to the jurisdictional requirements set out below.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:20px 0;">
+            <div style="background:#e8f4e8;border-left:5px solid #3a7d44;padding:18px 20px;">
+                <h4 style="color:#1a4d24;margin-bottom:8px;font-size:0.93rem;">Western Nations — Permitted</h4>
+                <p style="font-size:0.84rem;line-height:1.7;color:#2a4a2a;">Voluntary cessions are accepted directly, without additional host-nation approval, from landowners in: <strong>EU member states, the United Kingdom, the United States of America, Canada, Australia, New Zealand,</strong> and comparable Western liberal democracies as determined by the Ministry of Foreign Affairs.</p>
+            </div>
+            <div style="background:#fff4e0;border-left:5px solid #c8a84b;padding:18px 20px;">
+                <h4 style="color:#7a5a00;margin-bottom:8px;font-size:0.93rem;">Eastern &amp; African Nations — Approval Required</h4>
+                <p style="font-size:0.84rem;line-height:1.7;color:#5a4000;">Cessions from landowners in Eastern Europe (outside the EU), Asia, the Middle East, Central Asia, and the continent of Africa require prior written approval from the relevant host-nation government, or a formal legal opinion from a qualified local solicitor confirming the cession is lawful under domestic law. The Republic will not register a cession from these jurisdictions without such documentation.</p>
+            </div>
+        </div>
         <p style="line-height:1.85;color:#444;">All territories situated within the boundaries of a recognised sovereign state remain fully subject to the domestic laws of that state. Labradoian sovereignty operates concurrently and does not supersede host-nation law.</p>
     </div>
 </section>
@@ -66,21 +90,13 @@
             <div class="territory-item reveal">
                 <div class="territory-num">I</div>
                 <div>
-                    <div class="territory-tag">Unclaimed Land — Africa</div>
-                    <h4>Bir Tawil (Egypt/Sudan Border)</h4>
-                    <p>A tract of approximately 2,060 km² claimed by neither the Arab Republic of Egypt nor the Republic of the Sudan, owing to a legal anomaly arising from conflicting boundary conventions of 1899 and 1902. Neither state asserts a claim, as acceptance would require forfeiting a larger adjacent region. Labradoria asserts sovereign interest pursuant to the doctrine of <em>terra nullius</em>.</p>
-                </div>
-            </div>
-            <div class="territory-item reveal">
-                <div class="territory-num">II</div>
-                <div>
                     <div class="territory-tag">Unclaimed Land — Antarctica</div>
                     <h4>Marie Byrd Land, Antarctica</h4>
                     <p>The sole unclaimed sector of the Antarctic continent, comprising approximately 1.6 million km² of glaciated terrain in West Antarctica. Labradoria asserts declaratory sovereignty while affirming commitment to the peaceful and scientific purposes of the Antarctic Treaty System, to which Labradoria is not a signatory.</p>
                 </div>
             </div>
             <div class="territory-item reveal">
-                <div class="territory-num">III</div>
+                <div class="territory-num">II</div>
                 <div>
                     <div class="territory-tag">Maritime Interest — High Seas</div>
                     <h4>International Waters &amp; High Seas</h4>
@@ -88,11 +104,33 @@
                 </div>
             </div>
             <div class="territory-item reveal">
-                <div class="territory-num">IV</div>
+                <div class="territory-num">III</div>
                 <div>
                     <div class="territory-tag">Voluntarily Ceded — Worldwide</div>
-                    <h4>Voluntarily Ceded Private Land — Any Jurisdiction</h4>
-                    <p>Any individual or legal entity holding valid title to privately owned real property under the domestic law of any country in the world may voluntarily cede that property to Labradoria via a formal Instrument of Cession. Ceded parcels are incorporated into the Labradoian Territorial Register. Presently includes privately held parcels within the French Republic and the United Kingdom. <strong>Note:</strong> certain ceded parcels are held in strict confidence by the Republic, as they may constitute a private individual's home or residence. Their precise location shall not be publicly disclosed. Enquiries regarding specific private cessions may only be submitted by a recognised foreign government through official diplomatic channels, and will be considered on a case-by-case basis. All ceded lands remain fully subject to host-nation domestic law.</p>
+                    <h4>Voluntarily Ceded Private Land</h4>
+                    <p>Any individual or legal entity holding valid title to privately owned real property may voluntarily cede that property to Labradoria via a formal Instrument of Cession. Ceded parcels are incorporated into the Labradoian Territorial Register. Currently includes privately held parcels within the French Republic and the United Kingdom — detailed below.</p>
+                    <p style="margin-top:8px;"><strong>Jurisdictional rules apply:</strong> Cessions from Western nations (EU, UK, USA, Canada, Australia, New Zealand, and comparable liberal democracies) are accepted directly. Cessions from Eastern European, Asian, Middle Eastern, and African jurisdictions require prior host-nation government approval or a formal solicitor's legal opinion confirming lawfulness under domestic law before the Republic will register the cession.</p>
+                    <p style="margin-top:8px;"><strong>Confidentiality:</strong> Certain ceded parcels are held in strict confidence where they constitute a private individual's home or residence. Their precise location shall not be publicly disclosed. Enquiries may only be submitted by a recognised foreign government through official diplomatic channels.</p>
+                </div>
+            </div>
+
+            <div class="territory-item reveal">
+                <div class="territory-num">IV</div>
+                <div>
+                    <div class="territory-tag">Ceded Parcel — French Republic</div>
+                    <h4>Labradoian Territory Normand — Normandie Region, France</h4>
+                    <p>One (1) privately owned land parcel voluntarily ceded to the Republic of Labradoria, situated in the Normandie region of the French Republic. The parcel was accepted by the Ministry of Foreign Affairs &amp; Territorial Affairs under Article VII of the Constitution and registered in the Labradoian Territorial Register.</p>
+                    <p style="margin-top:8px;font-size:0.84rem;color:#888;"><strong>Legal status:</strong> The cession is symbolic and ceremonial. The original titleholder retains full legal ownership under the Code Civil. All French fiscal and legal obligations applicable to the parcel remain entirely unaffected. Precise location is held in confidence in accordance with the Republic's data protection obligations.</p>
+                </div>
+            </div>
+
+            <div class="territory-item reveal">
+                <div class="territory-num">V</div>
+                <div>
+                    <div class="territory-tag">Ceded Parcels — United Kingdom</div>
+                    <h4>Labradoian Territory South — Greater London Area, England</h4>
+                    <p>Two (2) privately owned land parcels voluntarily ceded to the Republic of Labradoria, both situated in the Greater London area of England, United Kingdom. Both parcels were accepted by the Ministry of Foreign Affairs &amp; Territorial Affairs under Article VII of the Constitution and registered in the Labradoian Territorial Register.</p>
+                    <p style="margin-top:8px;font-size:0.84rem;color:#888;"><strong>Legal status:</strong> The cessions are symbolic and ceremonial. The original titleholders retain full legal ownership under the Law of Property Act 1925. No SDLT is payable and no HM Land Registry registration is required. All UK fiscal and legal obligations applicable to the parcels remain entirely unaffected. Precise locations are held in confidence in accordance with the Republic's data protection obligations.</p>
                 </div>
             </div>
         </div>
