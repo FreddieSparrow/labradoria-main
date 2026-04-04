@@ -1,0 +1,19 @@
+# Robots.txt for Republic of Labradoria
+# Generated: 2026-04-04
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://labradoria.org/sitemap.xml
+
+# Disallow private/admin areas (if any added in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl delay (in seconds) - allow search engines normal crawling
+Crawl-delay: 1
+
+# Comment-out section: Specific search engine rules (example)
+# User-agent: Googlebot
+# Crawl-delay: 0
