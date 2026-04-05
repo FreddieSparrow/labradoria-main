@@ -73,7 +73,7 @@ function highlightNames() {
                     walkTextNodes(span.childNodes[i]);
                 }
             }
-        } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE', 'MARK'].includes(node.tagName)) {
+        } else if (node.nodeType === Node.ELEMENT_NODE && !['SCRIPT', 'STYLE', 'MARK'].includes(node.tagName) && !node.classList.contains('no-name-highlight')) {
             for (let i = 0; i < node.childNodes.length; i++) {
                 walkTextNodes(node.childNodes[i]);
             }
