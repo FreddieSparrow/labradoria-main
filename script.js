@@ -93,17 +93,17 @@ function highlightNames() {
         let label1 = 'Office';
         let label2 = 'Founders';
         
-        if (person === 'haydn-fell') {
-            href1 = 'founders.html';
-            label1 = 'Founders';
-        }
-        
         const tooltip = document.createElement('div');
         tooltip.className = 'name-tooltip';
-        tooltip.innerHTML = `
-            <a href="${href1}" class="name-tooltip-link">${label1}</a>
-            <a href="${href2}" class="name-tooltip-link">${label2}</a>
-        `;
+
+        if (person === 'haydn-fell') {
+            tooltip.innerHTML = `<a href="founders.html" class="name-tooltip-link">Founders</a>`;
+        } else {
+            tooltip.innerHTML = `
+                <a href="${href1}" class="name-tooltip-link">${label1}</a>
+                <a href="${href2}" class="name-tooltip-link">${label2}</a>
+            `;
+        }
         mark.appendChild(tooltip);
     });
 }
